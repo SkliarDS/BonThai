@@ -1,0 +1,45 @@
+/* l */
+@media (max-width: $l) {
+    .container {
+        max-width: $c_l;
+    }
+}
+/* T */
+@media (max-width: $t) {
+    .container {
+        max-width: $c_t;        
+    }
+}
+/* MN */
+@media (max-width: $mn) {
+    .container {
+        max-width: $c_mn;        
+    }
+}
+
+/* M */
+@media (max-width: $m) {
+    .container {
+        max-width: $c_m;        
+    }
+}
+
+/* XX */
+@media (max-width: $xx) {
+	.container {
+		max-width: $c_xx;
+	}
+}
+
+/* X */
+@media (max-width: $x) {
+    .container {
+        max-width: $c_x;       
+    }
+}
+/* XS */
+@media (max-width: $xs) {
+    .container {
+        width: $c_xs;       
+    }
+}

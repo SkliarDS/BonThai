@@ -1,0 +1,22 @@
+
+[data-accordion-parent].active {
+
+}
+[data-accordion] {
+    position: relative;
+    cursor: pointer;    
+}
+[data-accordion-hidden] { 
+    display: grid;
+    grid-template-rows: 0fr;    
+    overflow: hidden; 
+    transition: 0.3s ease-in-out;
+    &.active {        
+        grid-template-rows: 1fr;
+    }
+}
+  
+
+
+
+

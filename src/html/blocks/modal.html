@@ -1,0 +1,59 @@
+
+        
+
+<button data-modal-button="modal-1" class="btn btn-outline-primary mb-1" type="button">
+    Открыть модальное окно №1
+</button>
+
+<button data-modal-button="modal-2" class="btn btn-outline-primary mb-1" type="button">
+    Открыть модальное окно №2
+</button>
+
+<button data-modal-button="modal-3" class="btn btn-outline-primary mb-1" type="button">
+    Открыть модальное окно №3
+</button>
+
+<div id="modal-1" data-modal class="fade-block hidden">
+    <div class="modal-block">
+        <div class="modal-window trend__modal">                                  
+            <button data-modal-close type="button" class="btn btn--circle-w50 btn--purpl"><img loading='lazy' width='20' height='20' src='./img/clouse.png' alt=''></button>
+            <form class="form zayavka">
+                <input type="hidden" name="project_name" value="sfit.online">
+                <input type="hidden" name="admin_email" value="sfit111@mail.ru">
+                <input type="hidden" name="email_from" value="info@sfit.ru">                   
+                <h2 class="form__title title2">Для записи на тренировку оставьте свои контактные данные</h2>                
+                <div class="form-wr-fields">
+                    <label class="form-block">
+                        <input class="form-input btn" type="text" name="ФИО" placeholder="ФИО" required>			
+                    </label>
+                    <label class="form-block">
+                        <input class="form-input btn phone" type="text" name="Телефон" placeholder="Телефон" required>			
+                    </label>
+                    <label class="form-field">
+                        <textarea class="form-input btn form-input--field" name="сообщение" placeholder="Введите комментарий здесь" required></textarea>			
+                    </label>
+                    <div class="form-button">
+                        <input class="send-button btn btn--purpl text--white" type="submit" value="ОТПРАВИТЬ">			
+                    </div>
+                </div>
+            </form>
+            <div class='answer'></div> 
+        </div>
+    </div>
+</div>
+
+<div id="modal-2" data-modal class="fade-block hidden">
+    <div class="modal-window">      
+        <h3>Модальное окно №2</h3>                    
+        <button data-modal-close type="button" class="btn btn-dark">Закрыть окно</button>
+    </div>
+</div>
+
+<div id="modal-3" data-modal class="fade-block hidden">
+    <div class="modal-window">      
+        <h3>Модальное окно №3</h3>                    
+        <button data-modal-close type="button" class="btn btn-dark">Закрыть окно</button>
+    </div>
+</div>
+
+

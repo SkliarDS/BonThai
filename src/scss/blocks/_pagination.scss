@@ -1,0 +1,43 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @media (max-width: $x) {
+        gap: 5px;
+    }
+}
+.pagination__item {
+}
+.pagination__link {
+    @extend .flex-center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: center;
+    color: #000;
+    background-color: #efefef;
+    transition:  var(--transition) ease-in;
+    svg {
+        stroke: currentColor;
+    }
+    &.active {
+        background-color: #295047;
+        color: #efefef;
+        @media (hover: hover){
+            &:hover {
+                background-color: var(--color-btn);
+            }
+        }
+    }
+    @media (hover: hover){
+        &:hover {
+            background-color: #eaf8e7;
+        }
+    }
+    @media (max-width: $x) {
+        width: 45px;
+        height: 45px;
+    }
+}

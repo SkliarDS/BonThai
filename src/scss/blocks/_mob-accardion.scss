@@ -1,0 +1,34 @@
+.mob-list {
+    .list__item {
+        position: relative; 
+        @media (max-width: $xx) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }   
+    }
+    .list__item-hidden {          
+        @media (max-width: $xx) {
+            max-height: 0;       
+            overflow: hidden;    
+            padding: 0 20px; 
+            will-change: max-height;
+            transition: all 0.3s ease-in-out;
+        }
+        &.js-hidden {        
+            padding: 20px;
+            box-sizing: content-box;
+        }  
+    }
+    .list__icon {
+        display: none;
+        width: 0;
+        height: 0;
+        border-width: 5px 5px 0 5px;
+        border-color: #000 transparent transparent transparent;
+        border-style: solid;
+        @media (max-width: $xx) {
+            display: block;
+        }
+    }
+}

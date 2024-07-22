@@ -1,0 +1,23 @@
+<form class="form form-modal" data-form-validation> 
+	<div class="form__title">Обратный звонок</div>
+	<div class="form__subtitle">После заполнения вами формы наш менеджер по бронированию свяжется с вами!</div>
+	<div class="form__block-inputns">
+		<input class="form__input" type="text" data-form-text name="Name"  placeholder="Имя*" required>	            
+		<input class="form__input" type="tel" data-form-phone name="Phone"  placeholder="Телефон*" required>	                     
+		<textarea class="form__input --message" name="Message" placeholder="Сообщение"></textarea>	
+	</div>                        
+	<div class="form__block-captcha">
+		<div class="g-recaptcha" data-sitekey="6LeqacUpAAAAAM1c65coAyTrqAxOCx_Gqekvzasy"></div>
+	</div>              
+				
+	<label class="checkbox">
+		<input type="checkbox" name="соглашение" class="checkbox__real-input" checked>
+		<span class="checkbox__custom-input"></span>
+		<span class="checkbox__text">Я даю согласие на получение рекламной рассылки и обработку персональных данных</span>
+	</label>          
+	<button disabled class="send-button btn --green" type="submit">Отправить</button>		               			
+</form>
+
+      
+
+

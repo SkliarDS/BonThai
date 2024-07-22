@@ -1,0 +1,105 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body > * {
+    flex-shrink: 0;
+}
+input,
+textarea,
+button {
+    outline: none;
+    font-family: inherit;
+    padding: 0;
+}
+input[type="radio"],
+input[type="checkbox"],
+input[type="submit"] {
+    appearance: none;
+    -moz-appearance: none;
+}
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+}
+label,
+a,
+button {
+    cursor: pointer;
+}
+a,
+a:hover {
+    text-decoration: none;
+    // user-select: none;
+    // -webkit-tap-highlight-color: transparent;
+}
+svg {
+    max-width: 100%;
+}
+input, textarea, button, select {
+	font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+button {
+    display: inline-block;
+    border: 0;
+    padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+legend {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+	outline: none;
+	cursor: pointer;    
+}
+select:focus {
+    outline: none;    
+}
+select::-ms-expand {
+    display: none;    
+}

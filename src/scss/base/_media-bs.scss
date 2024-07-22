@@ -1,0 +1,45 @@
+/* l */
+@media (max-width: $l) { // 1400
+    .container {
+        max-width: $c_l; // 1140
+    }
+}
+/* T */
+@media (max-width: $t) { // 1200
+    .container {
+        max-width: $c_t; // 960        
+    }
+}
+/* MN */
+@media (max-width: $mn) { // 992
+    .container {
+        max-width: $c_mn;  // 720      
+    }
+}
+
+/* M */
+@media (max-width: $m) { // 768
+    .container {
+        max-width: $c_m;  // 540      
+    }
+}
+
+/* XX */
+@media (max-width: $xx) { // 576
+	.container {
+		max-width: $c_xx; // 425 
+	}
+}
+
+/* X */
+@media (max-width: $x) { // 425
+    .container {
+        max-width: $c_x;    // 100%   
+    }
+}
+// /* XS */
+// @media (max-width: $xs) {
+//     .container {
+//         width: $c_xs;       
+//     }
+// }

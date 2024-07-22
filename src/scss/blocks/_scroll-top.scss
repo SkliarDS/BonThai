@@ -1,0 +1,15 @@
+.scroll-top {
+    position: fixed;
+    bottom: 150px;
+    left: 50px;
+    z-index: 1;
+    opacity: 1;
+    transition: .4s;
+    img {
+        width: 70px;
+        height: 70px;
+    }
+    &.scroll-top--hide {  //добовляется модификатор к scroll-top и появляется иконка
+        opacity: 0;
+    }
+}

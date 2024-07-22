@@ -1,0 +1,20 @@
+
+[data-accordion] {
+    position: relative;
+    cursor: pointer;    
+}
+[data-item-hidden] {    
+    max-height: 0;       
+    overflow: hidden;    
+    padding: 0 20px; 
+    will-change: max-height;
+    transition: all 0.3s ease-in-out;
+    &.active {        
+        padding: 20px;
+        box-sizing: content-box;
+    }
+}
+
+
+
+

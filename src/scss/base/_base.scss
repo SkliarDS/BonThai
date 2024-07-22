@@ -1,0 +1,152 @@
+/* base styles  */
+
+html {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 0.834vw;
+    @media (max-width: 1440px) {
+        font-size: 1.11vw;
+    }
+    @media (max-width: $l) {
+        font-size: 1.25vw;
+    }
+    @media (max-width: $t) {
+        // font-size: 1vw;
+    }
+    @media (max-width: $mn) {
+        font-size: 1.5vw;
+    }
+    @media (max-width: $m) {
+        font-size: 2.1vw;
+    }
+    @media (max-width: $xx) {
+        font-size: 2.5vw;
+    }
+    @media (max-width: $x) {
+        font-size: 3.2vw;
+    }
+    @media (max-width: $xs) {
+        font-size: 3.2vw;
+    }
+}
+
+body {       
+    margin: 0;
+    height: 100%;
+    font-family: "MuseoSansCyrl", sans-serif;
+    color: #000;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 300;
+    @media (max-width: 424px) {
+        font-size: 14px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+.main {
+    flex: 1 0 auto;
+}
+body > * {
+    flex-shrink: 0; 
+}
+body.noscroll {
+    overflow: hidden;
+}
+#overlay {
+    display: none;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.35);
+    transition: 0.5s;
+    position: fixed;
+    &.active {
+        display: block;
+    }
+}
+
+.container {
+    max-width: 1230px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.container-left {
+    padding-left: max(50px, (100% - 1440px) / 2);
+}
+.none {
+    display: none !important;
+}
+.list-scrollbar  {  
+    overflow-y: auto;
+    scrollbar-color: rgba(153, 166, 183, 0.5) #fff;
+}
+.list-scrollbar::-webkit-scrollbar-track {
+    border-radius: 4px;
+}
+.list-scrollbar::-webkit-scrollbar {
+    width: 3px;
+}
+.list-scrollbar::-webkit-scrollbar-track {
+    background-color: #ececec;
+}
+.list-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #c9ccd1;
+}
+.list-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: #075D4E;
+}
+
+.none-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+}
+.none-scrollbar::-webkit-scrollbar {
+    width: 0px;
+    display: none; /* Для WebKit (Chrome, Safari, iOS Safari) */
+}
+.none-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.none-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+.none-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+label.invalid {
+    position: relative;
+    input {
+        &::placeholder {
+            color: #F00;
+        }
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: #ff0000;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+    }
+}
+button:disabled {
+    opacity: 0.3;
+}
+.js-active {
+    animation: active 0.3s ease-in alternate; 
+}

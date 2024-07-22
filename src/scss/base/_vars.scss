@@ -1,0 +1,50 @@
+:root {
+    --color-1: #ffffff; 
+    --color-2: #68707D; 
+    --color-3: #F46922; 
+    --color-4: #EAECF1; 
+    --color-5: #101828; 
+    --color-6: #A1AAB8; 
+    --color-7: #F7F7F9; 
+    --divider: #eaecf1; 
+    --gradient-1: linear-gradient(360deg, #D9391E 0%, #F46521 32.00%, #F57E21 69.00%, #FAB009 100%); 
+    --gradient-2: linear-gradient(360deg, #363846 0%, #363846 32.00%, #363846 69.00%, #525252 100%); 
+    --font-hero: "Manrope", sans-serif;
+    
+}
+
+// @media
+$l: 1199px;
+$t: 1023px;
+$mn: 991px;
+$m: 767px;
+$xx: 575px;
+$x: 424px;
+$xs: 374px;
+
+// container
+$c_l: 1024px;
+$c_t: 992px;
+$c_mn: 768px;
+$c_m: 576px;
+$c_xx: 425px;
+$c_x: 375px;
+$c_xs: 320px;
+
+// @media
+// $l: 1400px;
+// $t: 1200px;
+// $mn: 992px;
+// $m: 768px;
+// $xx: 576px;
+// $x: 425px;
+// $xs: 375px;
+
+// container
+// $c_l: 1140px;
+// $c_t: 960px;
+// $c_mn: 720px;
+// $c_m: 540px;
+// $c_xx: 425px;
+// $c_x: 100%;
+// $c_xs: 320px;
