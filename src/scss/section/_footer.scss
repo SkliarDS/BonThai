@@ -1,0 +1,147 @@
+.footer {
+    position: relative;
+    overflow: hidden;
+    color: var(--color-footer);
+    background-color: #3e3d39;
+    padding: rem-size(44) 0 rem-size(65);
+}
+.footer__header {
+    position: relative;
+    z-index: 1;
+    @extend .flex-jc;
+    margin-bottom: rem-size(90);
+    @media (max-width: $xx) {
+        flex-direction: column;
+        gap: 20px;
+    }
+    @media (max-width: $x) {
+        align-items: start;
+    }
+}
+.footer__inner-links {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: rem-size(20);
+    @media (max-width: $x) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.footer__link-phone {
+    display: grid;
+    span {
+        font-size: rem-size(10);
+    }
+}
+.holder-cosials-links {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: rem-size(10);
+}
+.cosials-link {
+    @extend .flex-center;
+    width: rem-size(25);
+    height: rem-size(25);
+    border-radius: 50%;
+    background-color: var(--color-footer);
+    color: #453624;
+    @media (hover: hover) {
+        &:hover {
+            color: var(--color-footer);
+            background-color: #453624;
+        }
+    }
+    svg {
+        width: rem-size(15);
+        height: rem-size(15);
+    }
+    &.--telegram {
+        padding: rem-size(2) rem-size(2) 0 0;
+    }
+}
+.top-right {
+}
+.header-btn {
+}
+.footer__body {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    @media (max-width: $m) {
+        grid-template-columns: 1fr;
+    }
+}
+.footer__info {
+    display: grid;
+    gap: rem-size(17);
+    font-size: 12px;
+    line-height: 140%;
+    max-width: 240px;
+    padding-top: 30px;
+    @media (max-width: $m) {
+        grid-row: 2/3;
+        justify-self: center;
+    }
+}
+.footer__logo {
+    position: static;
+    transform: unset;
+    justify-self: center;
+    opacity: 0.2;
+    &.active {
+        animation: animLogo 2s linear both;
+    }
+}
+.footer__links {
+    display: grid;
+    align-self: end;
+    gap: 5px;
+    text-align: right;
+    @media (max-width: $m) {
+        justify-self: center;
+        text-align: start;
+    }
+    a {
+        font-size: rem-size(10);
+        line-height: 150%;
+        text-decoration: underline;
+        @media (hover: hover) {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+.footer__decor {
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+    &.--light {
+        left: 27%;
+        z-index: 1;
+        width: rem-size(659);
+        height: rem-size(408);
+        @media (max-width: $lg) {
+            left: 14%;
+        }
+    }
+    &.--dark {
+        left: 47%;
+        width: rem-size(427);
+        height: rem-size(349);
+    }
+}
+@keyframes animLogo {
+    0% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+        z-index: 1;
+    }
+}

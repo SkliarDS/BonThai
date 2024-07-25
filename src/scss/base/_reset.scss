@@ -36,12 +36,14 @@ a:hover {
 }
 svg {
     max-width: 100%;
+    fill: currentColor;
 }
-input, textarea, button, select {
+input, textarea, button, select, a {
 	font-family: inherit;
     font-size: inherit;
     color: inherit;
     background-color: transparent;
+    transition: all var(--transition) ease-in;
 }
 button, input[type="submit"] {
     display: inline-block;
@@ -51,9 +53,10 @@ button, input[type="submit"] {
     cursor: pointer;
 }
 button {
-    display: inline-block;
+    display: inline-grid;
     border: 0;
     padding: 0;
+    transition: all var(--transition) ease-in;
 }
 h1,
 h2,

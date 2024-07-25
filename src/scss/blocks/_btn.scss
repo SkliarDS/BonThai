@@ -1,0 +1,21 @@
+.btn {
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: rem-size(10);
+    border-radius: 4px;
+    padding: rem-size(12) rem-size(30);
+    font-weight: 400;
+    font-size: rem-size(12);
+    text-align: center;
+    color: var(--color-3);
+    line-height: normal;
+    border: 1px solid transparent;
+    &.--border {
+        border: 1px solid currentColor;
+    }
+    &.--full {
+        background-color: var(--color-1);
+        color: #786149;
+    }
+}

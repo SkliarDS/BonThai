@@ -1,21 +1,16 @@
 
-// Проверка поддержки webp
-function testWebP(callback) {
-    let webP = new Image();
-    webP.onload = webP.onerror = function () {
-        callback(webP.height == 2);
-    };
-    webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-}
-// Добавление класса _webp или _no-webp для HTML
-testWebP(function (support) {
-    let className = support === true ? 'webp' : 'no-webp';
-    document.documentElement.classList.add(className);
-});
+// const svgUses = document.querySelectorAll('use');
+// svgUses.forEach(use => {
+//     console.log("use:", use.getAttribute('href'))
+//     let link_icon = use.getAttribute('href');
+    
+//     use.setAttribute('href', link_icon + '?v=' + new Date().getTime());
+//     console.log('use:',use);
+// })
 
 document.addEventListener("DOMContentLoaded", function(){
     /* init Libs */ 
-    // var lazyLoadInstance = new LazyLoad({});
+    var lazyLoadInstance = new LazyLoad({});
 
     // AOS.init({
     //     duration: 1000,
@@ -33,11 +28,17 @@ document.addEventListener("DOMContentLoaded", function(){
     // }); 
     /* /init Libs*/
 
-    const navIcon = document.querySelector('.nav-icon');
-    const mobMenu = document.querySelector('.mobile-menu');
-    const overlay = document.querySelector('#overlay');    
+    function check_width_window(width){
+        return window.innerWidth <= width;
+    }
+
+    const navIcon = check_width_window(576) ? document.querySelector('.nav-icon.--mobile') : document.querySelector('.nav-icon.--pc');
+    const mobMenu = document.querySelector('#mobile-menu');   
+    const mobAddress = document.querySelector('#mobile-address');   
+    const btn_open_address = document.querySelector('#btn_open_address');   
     const main = document.querySelector('.main');    
     const header = document.querySelector('.header');    
+    const nav = document.querySelector('.nav');    
     const bodyEl = document.body;
     let header_height = header.offsetHeight;
 
@@ -45,33 +46,29 @@ document.addEventListener("DOMContentLoaded", function(){
     navIcon.addEventListener('click', function () {
         this.classList.toggle('active');
         mobMenu.classList.toggle('active');
-        overlay.classList.toggle('active');
         bodyEl.classList.toggle('noscroll');
     });
-
     
     mobMenu.addEventListener('click', function(){
         this.classList.remove('active');
         navIcon.classList.remove('active');
-        overlay.classList.remove('active');
         bodyEl.classList.remove('noscroll');
     });
-       
-        overlay.addEventListener('click', function(){
+    
+    btn_open_address.addEventListener('click', function () {
+        this.classList.toggle('active');
+        mobAddress.classList.toggle('active');
+        bodyEl.classList.toggle('noscroll');
+    });
+    
+    mobAddress.addEventListener('click', function(){
         this.classList.remove('active');
-        navIcon.classList.remove('active');
-        mobMenu.classList.remove('active');
+        btn_open_address.classList.remove('active');
         bodyEl.classList.remove('noscroll');
-    });  
-
-    let links = document.querySelectorAll('[data-link]');
-    links.forEach(link => {
-        link.addEventListener('click', (e) =>{
-            e.preventDefault();
-            let nextEl = link.nextElementSibling;
-            nextEl.classList.toggle('active');
-        });
     });
+
+
+
 
      /* Показ/скрытие блоков */ 
      function look_more(btnSelector, hidden_element) {
@@ -137,11 +134,12 @@ document.addEventListener("DOMContentLoaded", function(){
     let lastScrollTop = 0;
     const scrollHeaderFixed = () => {
         let scrollDistance = window.scrollY;      
-        if (scrollDistance > headerHeight) {
-            header.classList.add('header--fixed');
-            main.style.paddingTop = `${headerHeight}px`;
+        if (scrollDistance > header_height) {
+            nav.classList.add('--fixed');
+            let nav_height = nav.offsetHeight;
+            main.style.paddingTop = `${nav_height}px`;
         } else {
-            header.classList.remove('header--fixed');
+            nav.classList.remove('--fixed');
             main.style.paddingTop = null;            
         }
         lastScrollTop = scrollDistance;
@@ -151,21 +149,21 @@ document.addEventListener("DOMContentLoaded", function(){
         var currentScroll = window.scrollY || document.documentElement.scrollTop;       
         
         if (currentScroll > lastScrollTop){
-            header.classList.remove('header--fixed');
+            header.classList.remove('--fixed');
             main.style.paddingTop = `${0}px`;
         } else {
             main.style.paddingTop = `${header_height}px`;
-            header.classList.add('header--fixed');
+            header.classList.add('--fixed');
         }
         if(currentScroll == 0){
-            header.classList.remove('header--fixed');
+            header.classList.remove('--fixed');
             main.style.paddingTop = `${0}px`;
         }
         lastScrollTop = currentScroll;
     };
 
     window.addEventListener('scroll', () => { 
-        // scrollHeaderFixed();
+        scrollHeaderFixed();
     });
     /* /фиксированная шапка */
 
@@ -664,8 +662,45 @@ document.addEventListener("DOMContentLoaded", function(){
     });
     /* /Плавный скролл  */
 
-   
+    let prxScene = document.querySelector('.footer')
+    let prxItem_light = document.querySelector('.footer__decor.--light');
+    let prxItem_dark = document.querySelector('.footer__decor.--dark');
+    prxScene.addEventListener('mousemove', function (e) {
+        let x = e.clientX / window.innerWidth;
+        let y = e.clientY / window.innerHeight;
+        prxItem_light.style.transform = 'translate(' + x * 70 + 'px, ' + y * 20 + 'px)';
+        prxItem_dark.style.transform = 'translate(' + x * 50 + 'px, ' + y * 50 + 'px)';    
+    });   
+    // window.addEventListener('scroll', function(e) {
+    //     var vertical_position = 0;
+    //     if (pageYOffset)//usual
+    //         vertical_position = pageYOffset;
+    //     else if (document.documentElement.clientHeight)//ie
+    //         vertical_position = document.documentElement.scrollTop;
+    //     else if (document.body)//ie quirks
+    //         vertical_position = document.body.scrollTop;
+      
+    //     // prxItem_light.style.transform = `translateY(${100}px)`;
+    // })
+    const images = document.querySelectorAll('.footer__decor')
+    const footer_logo = document.querySelector('.footer__logo')
 
+    const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target)
+        }
+    })
+    }
+
+    const options = {
+        threshold: 0,
+    }
+
+    const observer = new IntersectionObserver(callback, options)
+    observer.observe(footer_logo)
+    // images.forEach((image) => observer.observe(image))
 });
 
     

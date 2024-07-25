@@ -8,7 +8,9 @@
 /* === /базовые стили === */
 
 /* === Блоки ===*/
-// @import './blocks/nav-icon';
+@import './blocks/nav-icon';
+@import './blocks/btn';
+@import './blocks/mobile-menu';
 /* === /Блоки ===*/
 
 /* === Компоненты ===*/
@@ -16,7 +18,7 @@
 /* === /Компоненты ===*/
 
 /* === Секции ===*/
-// @import './section/header';
-// @import './section/footer';
+@import './section/header';
+@import './section/footer';
 /* === /Секции ===*/
 
