@@ -11,6 +11,8 @@
 @import './blocks/nav-icon';
 @import './blocks/btn';
 @import './blocks/mobile-menu';
+@import './blocks/animation';
+@import './blocks/tabs';
 /* === /Блоки ===*/
 
 /* === Компоненты ===*/
@@ -19,6 +21,11 @@
 
 /* === Секции ===*/
 @import './section/header';
+@import './section/banner';
+@import './section/prompt';
+@import './section/slider';
+@import './section/gift';
+@import './section/spa-slider';
 @import './section/footer';
 /* === /Секции ===*/
 

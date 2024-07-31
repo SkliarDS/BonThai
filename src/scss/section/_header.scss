@@ -2,19 +2,7 @@
     color: #c7b399;
     transition: transform 0.2s ease-in;
     z-index: 4;
-    
 }
-@keyframes animHeader {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0%);
-        opacity: 1;
-    }
-}
-
 
 .header__top {
     padding: rem-size(30) 0 rem-size(40);
@@ -136,13 +124,15 @@
     }
 }
 .nav {
+    position: relative;
+    padding: 0 0 27px;
     &.--fixed {
         position: fixed;
         width: 100%;
         top: 0px;
         left: 0px;
         right: 0px;
-        padding: 15px 0;
+        padding: 15px 0 27px;
         animation: animHeader .3s linear;
         .nav__list {
             justify-content: space-between;

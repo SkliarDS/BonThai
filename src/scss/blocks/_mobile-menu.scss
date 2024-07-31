@@ -18,6 +18,9 @@
         top: 0;
         opacity: 1;
         z-index: 5;
+        .mobile-menu__logo {
+            animation: animLogo 1s .7s linear both;
+        }
     }
 }
 .mobile-menu__header {
@@ -48,6 +51,7 @@
     @media (hover: hover) {
         &:hover {
             color: var(--color-4);
+            transform: rotate(180deg);
         }
     }
 }

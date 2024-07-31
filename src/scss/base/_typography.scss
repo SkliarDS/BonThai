@@ -1,41 +1,42 @@
 
 .title1 {
-    
+    font-weight: 300;
+    font-size: 36px;
+    font-size: clamp(1.563rem, 1.25rem + 1.33vw, 2.25rem);
+    line-height: 125%;
+    text-transform: uppercase;
+    text-align: center;
+    background: var(--gradient-title);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @media (max-width: $x) {
+        line-height: 140%;
+    }
 }
 .title2 {
-    
+    font-family: var(--font-family);
+    font-weight: 200;
+    font-size: 55px;
+    line-height: 100%;
+    background: var(--gradient-title);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .title3 {
-    
-}
-.title4 {
-    
-}
-.text {
-   
-}
-.title--green {
-    
-}
-.text--black {
-    
-} 
-.title--white, .text--white {
-    color: #ffff;
+    font-weight: 300;
+    font-size: clamp(1rem, 0.682rem + 1.59vw, 1.875rem);
+    font-size: rem-size(30);
+    background: var(--gradient-title);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.txt {
-    
-}
-.txt--mb30 {
-    
-}
-.txt--mb40 {
-    
-}
-.txt--white {
-    color: #fff;
-}
-.txt--bold {
-    
+.text {
+    font-weight: 300;
+    font-size: rem-size(16);
+    line-height: 150%;
+    color: var(--color-1);
 }

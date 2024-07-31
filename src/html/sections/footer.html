@@ -1,6 +1,12 @@
-<footer class="footer">
-    <img class='footer__decor --light lazy' width='658' height='408' data-src='@img/decor/pngwing_2.svg' alt='декоративное изображение'>
-    <img class='footer__decor --dark lazy' width='427' height='349' data-src='@img/decor/pngwing_3.svg' alt='декоративное изображение'>
+<footer class="footer animated">
+    <picture>
+        <source media="(max-width: 576px)" srcset="@img/decor/pngwing_2_mobile.svg" >
+        <img class='footer__decor --light  lazy' width='658' height='408' data-src='@img/decor/pngwing_2.svg' alt='декоративное изображение'>
+    </picture>
+    <picture>
+        <source media="(max-width: 576px)" srcset="@img/decor/pngwing_3_mobile.svg" >
+        <img class='footer__decor --dark  lazy' width='427' height='349' data-src='@img/decor/pngwing_3.svg' alt='декоративное изображение'>
+    </picture>
     <div class="container">
         <div class="footer__header">
             <div class="footer__inner-links">
@@ -28,16 +34,18 @@
                 <li>
                     &copy; 2024 «BON THAI» — <a href="##">SPA-салоны в СПб</a>
                 </li>
-                <li>Бон Тай Типанова 27/39 ТК Космос 
+                <li>Бон Тай Типанова 27/39 ТК Космос <br>
                     ООО «Профи интеллект»  ИНН 7810720070</li>
-                <li>Бон Тай Кудрово, Бон Тай Звёздная
+                <li>Бон Тай Кудрово, Бон Тай Звёздная <br>
                     ООО «Проект 9/8»  ИНН 7811253196</li>
                 <li>
                     Разработано в 
-                    <svg width='56' height='13'><use href='./img/icons/icons.svg#logo_riders'></use></svg>
+                    <a href="https://riders.agency/">
+                        <svg width='56' height='13'><use href='./img/icons/icons.svg#logo_riders'></use></svg>
+                    </a>
                 </li>
             </ul>                        
-            <a href="/" class="footer__logo logo"><img class="lazy" width="240" height="93" src="@img/icons/logo_fooger.svg" alt="Логотип"></a> 
+            <a href="/" class="footer__logo logo animate"><img class="lazy" width="240" height="93" src="@img/icons/logo_fooger.svg" alt="Логотип"></a> 
             <div class="footer__links">
                 <a href="##">Публичная оферта и политика конфиденциальности</a>
                 <a href="##">Правила и другие документы</a>
@@ -45,8 +53,9 @@
         </div>
     </div>
 </footer>
- 
+
 <script src="./files/libs/style-modal.js"></script>
+<script src="./files/libs/typeit.min.js"></script>
 <script src="./files/libs/lazyload.min.js"></script>
 <script src="./files/libs/swiper/swiper-bundle.min.js"></script>			
-<script src="./js/main.js"></script>
+<script src="./js/main.js?v2"></script>

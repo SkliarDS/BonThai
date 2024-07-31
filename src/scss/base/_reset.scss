@@ -52,8 +52,7 @@ button, input[type="submit"] {
     background: none;
     cursor: pointer;
 }
-button {
-    display: inline-grid;
+button {    
     border: 0;
     padding: 0;
     transition: all var(--transition) ease-in;

@@ -1,0 +1,98 @@
+.prompt {
+}
+
+.prompt__container {
+    display: flex;
+    align-items: center;
+    gap: rem-size(120);
+    @media (max-width: $xx) {
+        flex-direction: column;
+        gap: rem-size(30);
+    }
+}
+.prompt__desc {
+    width: rem-size(480);
+    font-size: clamp(1rem, 0.682rem + 1.59vw, 1.875rem);
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(235, 220, 203, .2);
+    @media (max-width: $xx) {
+        padding-bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+}
+.prompt__decor {
+    @extend .flex-center;
+    position: relative;
+    width: rem-size(160);
+    height: rem-size(160);
+    @media (max-width: $xx) {
+        width: rem-size(100);
+        height: rem-size(100);
+    }
+}
+.prompt__decor-icon {
+    width: rem-size(40);
+    height: rem-size(40);
+    @media (max-width: $xx) {
+        width: rem-size(26);
+        height: rem-size(26);
+    }
+}
+.prompt__decor-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    &.--green {
+        animation: animPrompt 4.4s linear 0.4s infinite;
+    }
+    &.--light {
+        animation: animPrompt 5s linear 0s infinite;
+    }
+    &.--brown {
+        animation: animPrompt 4s linear 0.2s infinite;
+    }
+}
+.prompt__text {
+    position: absolute;
+    width: 0;
+    height: rem-size(140);
+    background-color: rgba(88, 75, 70, 0.9);
+    border-radius: 6px;
+    padding: rem-size(30);
+    top: -50%;
+    right: -100%;
+    transform: translate(50%, 0%);
+    font-size: rem-size(16);
+    line-height: 170%;
+    text-align: start;
+    color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    transition:  var(--transition) ease-in;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        width: rem-size(435);
+        @media (max-width: $x) {
+            width: rem-size(370);
+        }
+    }
+    @media (max-width: $t) {
+        transform: translate(0);
+    }
+    @media (max-width: $m) {
+        transform: translate(-50%, 0);
+    }
+    @media (max-width: $xx) {
+        right: 50%;
+        transform: translate(50%, 0%);
+    }
+    @media (max-width: $x) {
+        font-size: rem-size(14);  
+        padding: rem-size(30) rem-size(20);      
+    }
+    @media (max-width: $xs) {
+        padding: rem-size(30) rem-size(10);
+    }
+}

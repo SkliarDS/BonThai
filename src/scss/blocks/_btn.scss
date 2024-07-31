@@ -1,4 +1,5 @@
 .btn {
+    position: relative;
     display: inline-grid;
     grid-auto-flow: column;
     align-items: center;
@@ -13,9 +14,21 @@
     border: 1px solid transparent;
     &.--border {
         border: 1px solid currentColor;
+        @media (hover: hover){
+            &:hover {
+                color: #fff;
+            }
+        }
     }
     &.--full {
         background-color: var(--color-1);
         color: #786149;
+        @media (hover: hover){
+            &:hover {
+                color: var(--color-3);
+                background-color: transparent;
+                border: 1px solid currentColor;
+            }
+        }
     }
 }

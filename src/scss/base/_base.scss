@@ -31,10 +31,10 @@ html {
         font-size: 3.2vw;
     }
     @media (max-width: $x) {
-        font-size: 3.2vw;
+        font-size: 3.76vw;
     }
     @media (max-width: $xs) {
-        font-size: 3.2vw;
+        font-size: 4.27vw;
     }
 }
 
@@ -54,6 +54,7 @@ body {
     flex-direction: column;
     min-height: 100%;    
     z-index: 1;
+    overflow: hidden;
     &::before {
         position: absolute;
         content: '';
@@ -74,10 +75,17 @@ body {
             }
         }
     }
+    &.--brown-2 {
+        background: var(--gradient-2);
+        .nav {
+            &.--fixed {
+                background: var(--gradient-2);
+            }
+        }
+    }
 }
 .main {
     flex: 1 0 auto;
-    height: 1000px;
 }
 body > * {
     flex-shrink: 0; 
@@ -102,19 +110,23 @@ body.noscroll {
 
 .container {
     width: 100%;
-    max-width: 1230px;
+    --container-padding: 30px;
     max-width: rem-size(1260);
     margin-left: auto;
     margin-right: auto;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
     @media (max-width: 374px) {
-        padding-left: 10px;
-        padding-right: 10px;
+        // padding-left: 10px;
+        // padding-right: 10px;
+        --container-padding: 10px;
     }
 }
 .container-left {
-    padding-left: max(50px, (100% - 1440px) / 2);
+    padding-left: max(30px, (100% - rem-size(1200)) / 2);
+    @media (max-width: 374px) {
+        padding-left: max(10px, (100% - rem-size(1200)) / 2);
+    }
 }
 .none {
     display: none !important;
@@ -162,4 +174,56 @@ button:disabled {
 }
 .js-active {
     animation: active 0.3s ease-in alternate; 
+}
+
+.mb {
+    margin-bottom: clamp(3.125rem, 0.284rem + 12.12vw, 9.375rem);
+}
+.mt {
+    margin-top: clamp(3.125rem, 0.284rem + 12.12vw, 9.375rem);
+}
+.leaf-right {
+    position: relative;
+    &::before {
+        position: absolute;
+        content: '';
+        background-image: url('@img/decor/decor_1.svg');
+        background-repeat: no-repeat;
+        background-size: rem-size(550) rem-size(1200);
+        width: rem-size(550);
+        height: rem-size(1200);
+        top: 10%;
+        right: 0;
+        animation: animDecorRight 3s ease-in-out infinite alternate 2s;
+    }
+}
+
+.animated-circle {
+    position: absolute;    
+    bottom: -50%;
+    width: rem-size(610); height: rem-size(560);
+    @media (max-width: $xx) {
+       display: none;
+    }
+    &.--right {
+        right: -28%;
+        @media (max-width: $mn) {
+            right: -38%;
+        }   
+    }
+    &.--left {
+        left: 0%;
+        bottom: 0%;
+        @media (max-width: $mn) {
+            left: -38%;
+        }
+    }
+}
+.f {
+    transition:  1s ease-in;
+    @media (hover: hover){
+        &:hover {
+            transform: rotate3d(1, 1, 0, 20deg);
+        }
+    }
 }

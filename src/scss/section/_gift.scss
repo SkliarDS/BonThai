@@ -1,0 +1,229 @@
+.gift {
+    --gift-width: calc((583 / 16) * 1rem);
+    --gift-height: calc((400 / 16) * 1rem);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #8b6d57 0%, #412a1d 100%);
+    padding: rem-size(58) 0;
+    @media (max-width: $xx) {
+        --gift-width: calc((500 / 16) * 1rem);
+        --gift-height: calc((350 / 16) * 1rem);
+    }
+    @media (max-width: $x480) {
+        --gift-width: calc((400 / 16) * 1rem);
+        --gift-height: calc((280 / 16) * 1rem);
+    }
+    @media (max-width: $x) {
+        --gift-width: calc((315 / 16) * 1rem);
+        --gift-height: calc((216 / 16) * 1rem);
+    }
+}
+.gift__header {
+    max-width: 550px;
+    display: grid;
+    gap: rem-size(30);
+}
+.gift__tabs {
+    width: var(--gift-width);
+    margin-right: auto;
+    margin-left: auto;
+    padding: clamp(3.125rem, 1.705rem + 6.06vw, 6.25rem) 0px;
+}
+.gift-tab {
+}
+.gift-tab__content {
+    &.transform {
+        .evenlope-img {
+            transform: translateX(-150%);
+        }
+    }
+}
+.gift-tab__container {
+}
+.gift-tab__block {
+    position: relative;
+    width: var(--gift-width);
+    height: var(--gift-height);
+    img {
+        width: var(--gift-width);
+        height: var(--gift-height);
+    }
+}
+.evenlope-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 1s ease-in-out;
+    z-index: 1;
+}
+.inlay {
+    position: relative;
+    perspective: 1000px;
+    &.flipped {
+        .inlay__img {
+            &.--front {
+                transform: rotateY(180deg);
+            }
+            &.--back {
+                transform: rotateY(0deg);
+            }
+        }
+    }
+}
+.inlay__img {
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 1.6s;
+    &.--front {
+    }
+    &.--back {
+        transform: rotateY(180deg);
+    }
+}
+
+.gift-tab__footer {
+    margin-top: rem-size(25);
+    position: relative;
+}
+.gift-tab__controls {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    transform: translateY(0px);
+    transition: var(--transition) ease-in;
+    @media (max-width: $xx) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &.hidden {
+        transform: translateX(-100%);
+        opacity: 0;
+        position: absolute;
+    }
+}
+.gift-tab__btns {
+    @extend .flex-horizontol-center;
+    gap: rem-size(7);
+}
+.gift-tab__btn {
+    width: rem-size(25);
+    height: rem-size(25);
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: opacity var(--transition) ease-in;
+    @media (max-width: $x) {
+        width: rem-size(40);
+        height: rem-size(40);
+    }
+    &.active {
+        border: 1px solid #e9d9c7;
+    }
+    &.--red {
+        background-color: #522d2b;
+    }
+    &.--light-brown {
+        background-color: #c8aa83;
+    }
+    &.--green {
+        background-color: #094241;
+    }
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+.gift-tab__play {
+    justify-self: center;
+    width: rem-size(38);
+    height: rem-size(38);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--color-footer);
+        }
+    }
+
+    @media (max-width: $xx) {
+        justify-self: end;
+    }
+}
+
+.gift-tab__controls-back {
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    justify-content: center;
+    gap: rem-size(20);
+    display: grid;
+    opacity: 0;
+    position: absolute;
+    transform: translateY(100%);
+    height: 0;
+    transition: var(--transition) ease-in;
+    animation: animBackControls 0.4s linear 1s both;
+    &.active {
+        position: relative;
+        transform: translateY(0);
+        opacity: 1;
+        height: auto;
+    }
+}
+.gift-tab__btn-back {
+    width: rem-size(38);
+    height: rem-size(38);
+    color: var(--color-footer);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--color-1);
+        }
+    }
+}
+.gift-tab__link {
+}
+.gift-tab__btn-revers {
+    width: rem-size(38);
+    height: rem-size(38);
+    color: var(--color-footer);
+    @media (hover: hover) {
+        &:hover {
+            color: var(--color-1);
+            transform: rotate(180deg);
+        }
+    }
+    &.active {
+    }
+}
+
+@keyframes animBackControls {
+    0% {
+        position: absolute;
+    }
+    100% {
+        position: relative;
+    }
+}
+
+.gift__swiper {
+    .swiper-wrapper {
+    }
+    .swiper-slide {
+    }
+}
+.gift__slide {
+    background-image: url("@img/decor/prompt_icon.svg");
+    background-repeat: no-repeat;
+    background-position: center top; /* x y*/
+    background-size: rem-size(16); /* w h*/
+    padding-top: rem-size(26);
+    font-weight: 400;
+    font-size: rem-size(15);
+    text-align: center;
+    color: #c8b399;
+    b {
+        font-weight: 700;
+        color: #e9d9c7;
+    }
+}
+.gift__pagination {
+    @media (max-width: $xx) {
+        display: flex;
+        justify-content: center;
+    }
+}
