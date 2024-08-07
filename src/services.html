@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    @@include('./html/blocks/head.html', {
+        "title":"Франчазинг"
+    })   
+</head>
+<body id="body">   
+    <div class="wrapper --brown-2">
+        @@include('./html/blocks/mobile-menu.html')       
+        @@include('./html/blocks/mobile-address.html')   
+        @@include('./html/sections/header.html')                    
+        <main class="main"> 
+            @@include('./html/blocks/header-title.html', {'modificator': ''}) 
+            <section class="tags">
+                <div class="container">
+                    <div class="tags__container">
+                        <a href="##" class="tags__link">#Энергия</a>
+                        <a href="##" class="tags__link">#Релакс</a>
+                        <a href="##" class="tags__link">#Стройность</a>
+                        <a href="##" class="tags__link">#Расслабление</a>
+                        <a href="##" class="tags__link">#Романтик</a>
+                        <a href="##" class="tags__link">#Детокс</a>
+                    </div>
+                </div>
+            </section>           
+            <section class="blog__header">
+                <div class="container">
+                    <div class="blog__header-row">
+                        <button class="blog__header-btn js-open-search">
+                            <svg width='24' height='24'><use href='./img/icons/icons.svg#search'></use></svg>
+                        </button>                    		
+                        <div class="blog__header-slider">
+                            <div class="tab blog__tab swiper">
+                                <div class="swiper-wrapper">
+                                    <a href="##" class="swiper-slide tab__btn active">Тайские и oil массажи</a>                                   
+                                    <a href="##" class="swiper-slide tab__btn">Коррекция фигуры</a>                                   
+                                    <a href="##" class="swiper-slide tab__btn">СПА программы</a>                                   
+                                    <a href="##" class="swiper-slide tab__btn">Программы для двоих</a>                                   
+                                    <a href="##" class="swiper-slide tab__btn">Хаммам / бочка</a>                                   
+                                    <a href="##" class="swiper-slide tab__btn">Аюрведические программы</a>                                   
+                                    <a href="##" class="swiper-slide tab__btn">Для мужчин</a>     
+                                </div>                                
+                            </div>  
+                        </div>
+                    </div>                              
+                    <label class="blog__header-row --row-label --hidden">                  
+                        <button class="blog__header-btn js-close-search">
+                            <svg width='19' height='19'><use href='./img/icons/icons.svg#closed'></use></svg>
+                        </button>
+                        <input id="blog_search" name="" type="text" placeholder="Поиск">
+                        <button class="blog__header-btn-search">Найти</button>                
+                    </label>                          
+                </div>  
+            </section>
+            <section class="service-cards leaf-left ">
+                <div class="container">
+                   <div class="service-cards__container --data-card-time">
+                        <div class="card --black" data-card="26 июня 2024">
+                            <a href="##" class="card__url"></a>
+                            <div class="card__image">
+                                <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_1.webp' data-srcset='@img/info/info_1.webp 1x, @img/info/info_1@2x.webp 2x' alt='изображение'>
+                            </div>
+                            <div class="card__body">
+                                <div class="card__desc">
+                                    <span class="card__tag">#Энергия</span>
+                                    <p class="card__subtitle">Атмосфера нашего нового салона подарит чувство спокойствия и гармонии!</p>
+                                </div>
+                                <div class="card__footer">
+                                    <div class="card__price flex-jc">
+                                        <span>от <i>3600 ₽</i></span>
+                                        <span><i>60</i>  мин.</span>
+                                    </div>
+                                    <div class="card__bnts flex-jc">
+                                        <button class="card__btn btn --border">Онлайн-запись</button>
+                                        <a href="##" class="card__link">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card --black --mask-1" data-card="26 июня 2024">
+                            <a href="##" class="card__url"></a>
+                            <div class="card__image">
+                                <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_1.webp' data-srcset='@img/info/info_1.webp 1x, @img/info/info_1@2x.webp 2x' alt='изображение'>
+                            </div>
+                            <div class="card__body">
+                                <div class="card__desc">
+                                    <span class="card__tag">#Энергия</span>
+                                    <p class="card__subtitle">Традиционный тайский массаж в кимоно</p>
+                                </div>
+                                <div class="card__footer">
+                                    <div class="card__price flex-jc">
+                                        <span>от <i>3600 ₽</i></span>
+                                        <span><i>60</i>  мин.</span>
+                                    </div>
+                                    <div class="card__bnts flex-jc">
+                                        <button class="card__btn btn --border">Онлайн-запись</button>
+                                        <a href="##" class="card__link">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card --black --mask-2" data-card="26 июня 2024">
+                            <a href="##" class="card__url"></a>
+                            <div class="card__image">
+                                <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_1.webp' data-srcset='@img/info/info_1.webp 1x, @img/info/info_1@2x.webp 2x' alt='изображение'>
+                            </div>
+                            <div class="card__body">
+                                <div class="card__desc">
+                                    <span class="card__tag">#Энергия</span>
+                                    <p class="card__subtitle">Тайский массаж шейно-воротниковой зоны Тайский массаж шейно-воротниковой зоны</p>
+                                </div>
+                                <div class="card__footer">
+                                    <div class="card__price flex-jc">
+                                        <span>от <i>3600 ₽</i></span>
+                                        <span><i>60</i>  мин.</span>
+                                    </div>
+                                    <div class="card__bnts flex-jc">
+                                        <button class="card__btn btn --border">Онлайн-запись</button>
+                                        <a href="##" class="card__link">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card --black" data-card="26 июня 2024">
+                            <a href="##" class="card__url"></a>
+                            <div class="card__image">
+                                <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_1.webp' data-srcset='@img/info/info_1.webp 1x, @img/info/info_1@2x.webp 2x' alt='изображение'>
+                            </div>
+                            <div class="card__body">
+                                <div class="card__desc">
+                                    <span class="card__tag">#Энергия</span>
+                                    <p class="card__subtitle">Атмосфера нашего нового салона подарит чувство спокойствия и гармонии!</p>
+                                </div>
+                                <div class="card__footer">
+                                    <div class="card__price flex-jc">
+                                        <span>от <i>3600 ₽</i></span>
+                                        <span><i>60</i>  мин.</span>
+                                    </div>
+                                    <div class="card__bnts flex-jc">
+                                        <button class="card__btn btn --border">Онлайн-запись</button>
+                                        <a href="##" class="card__link">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                   <button class="service-cards__btn btn --full">Показать еще</button>
+                </div>
+            </section> 
+        </main>
+        @@include('./html/blocks/modal-grath.html')  
+        @@include('./html/sections/footer.html')
+    </div>
+</body>
+</html>

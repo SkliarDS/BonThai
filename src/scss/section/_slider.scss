@@ -1,11 +1,13 @@
 .slider {
     position: relative;
 }
+.slider__tab {
+    margin-bottom: rem-size(30);
+}
 .tab {
     position: relative;
     @extend .flex-horizontol-center;
     gap: rem-size(10);
-    margin-bottom: rem-size(30);
 }
 .tab__btn {
     @extend .inline-grid;
@@ -45,13 +47,14 @@
     padding: rem-size(10) 0;
     color: var(--color-3);
     height: 100%;
+    border-radius: 6px;
     @media (max-width: $xx) {
         padding: rem-size(10) 0 0;
     }
     &::before {
         @extend .flex-center;
         position: absolute;
-        content: attr(data-card-stock);
+        content: attr(data-card);
         width: rem-size(60);
         height: rem-size(60);
         border-radius: 50%;
@@ -73,8 +76,35 @@
     &.--green {
         background: linear-gradient(90deg, #656045 0%, #302e23 100%);
     }
+    &.--black {
+        background: rgba(0, 0, 0, 0.2);
+    }
+    &.--mask-1 {
+        .card__image {
+            -webkit-mask: url("@img/decor/mask_1.svg") no-repeat;
+            -webkit-mask-size: 100% 100%;
+        }
+    }
+    &.--mask-2 {
+        .card__image {
+            -webkit-mask: url("@img/decor/mask_2.svg") no-repeat;
+            -webkit-mask-size: 100% 100%;
+        }
+    }
+    &.--mask-3 {
+        .card__image {
+            -webkit-mask: url("@img/decor/mask_3.svg") no-repeat;
+            -webkit-mask-size: 100% 100%;
+        }
+    }
+    &.--mask-4 {
+        .card__image {
+            -webkit-mask: url("@img/decor/mask_4.svg") no-repeat;
+            -webkit-mask-size: 100% 100%;
+        }
+    }
 }
-[data-card-stock][data-card-stock=""]::before {
+[data-card][data-card=""]::before {
     display: none;
 }
 .card__url {
@@ -86,31 +116,37 @@
 .card__image {
     position: relative;
     width: 88%;
+    width: rem-size(340);
     height: clamp(12.313rem, 9.955rem + 10.06vw, 17.5rem);
     -webkit-mask: url("@img/decor/mask.svg") no-repeat;
     -webkit-mask-size: 100% 100%;
+    mask-position: center center;
     margin-bottom: rem-size(20);
     @media (max-width: $xx) {
         width: rem-size(215);
         height: rem-size(197);
+    }
+    img {
     }
 }
 .card__body {
     display: flex;
     flex-direction: column;
     align-self: start;
-    padding: rem-size(20) rem-size(30);
+    padding: rem-size(20);
     gap: rem-size(30);
     flex: 1 0 auto;
     @media (max-width: $xx) {
         padding: rem-size(20) rem-size(15);
     }
 }
-
+.card__desc {
+    display: grid;
+    gap: rem-size(10);
+}
 .card__title {
     font-weight: 500;
     font-size: rem-size(19);
-    margin-bottom: rem-size(10);
     @media (max-width: $xx) {
         font-size: rem-size(15);
     }
@@ -121,16 +157,43 @@
         font-size: rem-size(13);
     }
 }
-.card__bnts {
+.card__tag {
+    font-size: 12px;
+    color: var(--color-3);
+}
+.card__footer {
     margin-top: auto;
-    &.--center {
-        .card__btn {
-            @extend .flex-center;
+    display: grid;
+    gap: rem-size(10);
+}
+.card__price {
+    span {
+        font-size: rem-size(19);
+        color: var(--color-3);
+        i {
+            color: #b46d2f;
+            font-style: normal;
         }
     }
 }
+.card__bnts {
+    margin-top: auto;
+    &.--center {
+        @extend .flex-center;
+    }
+    &.--jc {
+        @extend .flex-jc;
+    }
+}
 .card__btn {
-    @media (hover: hover){
+    @media (hover: hover) {
+        &:hover {
+            color: var(--color-footer);
+        }
+    }
+}
+.card__link {
+    @media (hover: hover) {
         &:hover {
             color: var(--color-footer);
         }
@@ -151,3 +214,51 @@
         background: var(--color-1);
     }
 }
+
+// .info-cards {
+.--data-card-time {
+    .card {
+        &::before {
+            width: auto;
+            height: auto;
+            border-radius: 0%;
+            font-weight: 400;
+            font-size: rem-size(12);
+            text-align: start;
+            color: var(--color-3);
+            background-color: unset;
+            top: rem-size(20);
+            left: rem-size(10);
+            z-index: 1;
+        }
+    }
+}
+.--data-card-number {
+    .card {
+        &::before {
+            width: rem-size(60);
+            height: rem-size(60);
+            border-radius: 50%;
+            font-weight: 100;
+            font-size: rem-size(31);
+            line-height: 1;
+            text-align: center;
+            color: #fff;
+            background-color: #b99a80;
+            top: rem-size(20);
+            left: rem-size(10);
+            z-index: 1;
+        }
+        &.--grey {
+            &::before {
+                background-color: #3e3c3b;
+            }
+        }
+        &.--green {
+            &::before {
+                background-color: #4b4835;
+            }
+        }
+    }
+}
+// }

@@ -1,0 +1,62 @@
+.atmosphere {
+}
+.atmosphere__header {
+    margin-bottom: rem-size(100);
+    display: grid;
+    gap: rem-size(30);
+    @media (max-width: $xx) {
+        margin-bottom: rem-size(30);
+    }
+    .tab {
+        @media (max-width: $xs) {
+            overflow-x: auto;
+            .tab__btn {
+                flex-shrink: 0;
+            }
+        }
+    }
+}
+.atmosphere__swiper {
+    .swiper-wrapper {
+    }
+    .swiper-slide {
+    }
+}
+.atmosphere__slide {
+    height: rem-size(408);
+    overflow: hidden;
+    border-radius: 6px;
+    &:nth-child(even) {
+        width: 20%;
+    }
+    &:nth-child(odd) {
+        width: 33%;
+    }
+    @media (max-width: $t) {
+        &:nth-child(even) {
+            width: 30%;
+        }
+        &:nth-child(odd) {
+            width: 40%;
+        }
+    }
+    @media (max-width: $xx) {
+        &:nth-child(even) {
+            width: 40%;
+        }
+        &:nth-child(odd) {
+            width: 50%;
+        }
+    }
+    @media (max-width: $x480) {
+        height: rem-size(350);
+        &:nth-child(even) {
+            width: 70%;
+        }
+        &:nth-child(odd) {
+            width: 80%;
+        }
+    }
+}
+.atmosphere__pagination {
+}

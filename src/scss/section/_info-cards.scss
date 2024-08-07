@@ -1,0 +1,22 @@
+.info-cards {
+}
+.info-cards__title {
+    margin-bottom: rem-size(50);
+    @media (max-width: $x480) {
+        margin-bottom: rem-size(30);
+    }
+}
+.info-cards__swiper {
+    @media (max-width: $l) {
+        padding-right: var(--container-padding);
+        margin-right: calc(var(--container-padding) * -1);
+    }
+    .swiper-wrapper {
+    }
+    .swiper-slide {
+        height: auto;
+    }
+}
+
+.info-cards__pagination {
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    @@include('./html/blocks/head.html', {
+        "title":"Вакансии"
+    })   
+</head>
+<body id="body">   
+    <div class="wrapper --brown">
+        @@include('./html/blocks/mobile-menu.html')       
+        @@include('./html/blocks/mobile-address.html')   
+        @@include('./html/sections/header.html')       
+        
+        
+        <main class="main">            
+            <section class="main-banner --page animated">
+                <div class="container-left">        
+                    <div class="main-banner__video banner-overlay --decor-brown">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="">
+                            <img class='banner-decor lazy' width='699' height='651' data-src='@img/decor/banner_decor.svg' alt=''>
+                        </picture>
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="">
+                            <img class='banner-decor --opacity lazy' width='699' height='651' data-src='@img/decor/banner_decor_opacity.svg' alt=''>
+                        </picture>
+                        <div class="main-banner__content">
+                            <div class="banner-content">
+                                <h1 class="banner-content__title title1">ВАКАНСИИ</h1>
+                                <p class="banner-content__subtitle">Станьте частью нашего дружного коллектива тайского спа-салона и откройте для себя возможность работать в теплой и поддерживающей атмосфере!</p>
+                            </div>
+                        </div> 
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="">
+                            <img class='video zoom  lazy ' width='699' height='651' data-src='@img/bg/banner_1.webp' data-srcset='@img/bg/banner_1.webp 1x, @img/bg/banner_1@2x.webp 2x' alt=''>
+                        </picture>        
+                    </div>    
+                </div>
+            </section>
+            @@include('./html/sections/faq.html')             
+            @@include('./html/blocks/form.html') 
+        </main>
+        @@include('./html/blocks/modal-grath.html')  
+        @@include('./html/sections/footer.html')
+    </div>
+</body>
+</html>

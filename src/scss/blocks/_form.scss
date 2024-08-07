@@ -1,64 +1,173 @@
-.form {
-    display: grid;
-    gap: 30px;
-}
-.form--green {
-    background-color: var(--color-btn);
-    border-radius: 30px;
-    padding: 40px;
-    @media (max-width: $lg) {
-        padding: 20px;
-    }
-    .send-button {
-        width: 100%;
-        background-color: #fff;
-        color: #000;
-        @media (hover: hover) {
-            &:hover {
-                color: #fff;
-            }
+.form-block {
+
+    &.--bg {
+        background: rgba(0, 0, 0, 0.2);
+        margin-bottom: 0;
+        padding: rem-size(30) 0;
+        .manager {
+            background-color: transparent;
         }
     }
 }
+.form {
+}
+.form-block__container {
+    @extend .flex-jc;
+    @media (max-width: $m) {
+        flex-direction: column;
+        gap: rem-size(20);
+    }
+}
+.form-block__form {
+    max-width: 52.4%;
+    display: grid;
+    gap: rem-size(26);
+    color: #d9d4bd;
+    @media (max-width: $m) {
+        max-width: 100%;
+    }
+    
+}
 .form__title {
-    font-weight: 700;
-    font-size: 22px;
-    color: #fff;
 }
 .form__subtitle {
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 150%;
-    color: #fff;
+    font-size: rem-size(20);
 }
 .form__block-inputns {
     display: grid;
-    gap: 20px;
+    gap: 10px;
+}
+.form__block {
+    position: relative;
+    &.active {
+        // .form__placeholder {
+        //     top: 25%;
+        //     font-size: 12px;
+        // }
+        // .form__input {
+        //     min-height: 63px;
+        // }
+    }
+}
+.form__placeholder {
+    position: absolute;
+    top: 25%;
+    left: rem-size(20);
+    transform: translateY(-50%);
+    transition:  var(--transition) ease-in;
+    font-size: rem-size(12);
+    color: var(--color-3);
 }
 .form__input {
     width: 100%;
     border: 1px solid transparent;
     outline: none;
-    font-weight: 500;
-    font-size: 15px;
-    color: #e6e6e6;
-    border-radius: 9px;
-    padding: 12px 14px;
-    background: rgba(255, 255, 255, 0.16);
+    font-size: rem-size(16);
+    color: var(--color-3);
+    border-radius: 3px;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    transition:  var(--transition) ease-in;
     &::placeholder {
-        color: #e6e6e6;
+        color: var(--color-3);
     }
     &.is-not-valid {
         border-color: red;
     }
 }
+[data-form-phone] {
+    padding: 27px 20px 14px;
+}
 .--message {
     resize: none;
-}
-.form__block-captcha {
+    padding: 27px 20px 14px;
+    height: 63px;
 }
 .send-button {
 }
+.form__approval {
+    font-size: rem-size(13);
+    color: var(--color-1);
+    a {
+        text-decoration: underline;
+        @media (hover: hover){
+            &:hover {
+            text-decoration: none;
+            }
+        }
+    }
+}
+
+
+.form-block__manager {
+}
+.manager {
+    width: rem-size(368);
+    padding: rem-size(20) rem-size(20) rem-size(30);
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    @media (max-width: $m) {
+        width: 100%;
+        display: flex;
+    }
+    @media (max-width: $xx) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.manager__holder-img {
+    position: relative;
+    background-image: url('@img/decor/mask_border.svg');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: rem-size(328) 100%;
+    margin-bottom: rem-size(30);   
+}
+.manager__img {
+    width: rem-size(328);
+    height: clamp(12.313rem, 9.386rem + 12.48vw, 18.75rem);
+    -webkit-mask: url('@img/decor/mask_manager.svg'), no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-position: center center;
+    
+}
+.manager__content {
+    display: grid;
+    gap: rem-size(20);
+    padding: 0 rem-size(10);
+    align-content: start;
+}
+.manager__name {
+    font-weight: 600;
+    font-size: rem-size(20);
+    color: #d9d4bd;
+}
+.manager__desc {
+    color: #c8b399;
+}
+.manager__link {
+    @media (hover: hover){
+        &:hover {
+        color: var(--color-4);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .form-modal {
     .form__title {
@@ -86,3 +195,4 @@
         width: 100%;
     }
 }
+

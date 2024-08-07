@@ -1,22 +1,43 @@
-<form class="form form-modal" data-form-validation> 
-	<div class="form__title">Обратный звонок</div>
-	<div class="form__subtitle">После заполнения вами формы наш менеджер по бронированию свяжется с вами!</div>
-	<div class="form__block-inputns">
-		<input class="form__input" type="text" data-form-text name="Name"  placeholder="Имя*" required>	            
-		<input class="form__input" type="tel" data-form-phone name="Phone"  placeholder="Телефон*" required>	                     
-		<textarea class="form__input --message" name="Message" placeholder="Сообщение"></textarea>	
-	</div>                        
-	<div class="form__block-captcha">
-		<div class="g-recaptcha" data-sitekey="6LeqacUpAAAAAM1c65coAyTrqAxOCx_Gqekvzasy"></div>
-	</div>              
-				
-	<label class="checkbox">
-		<input type="checkbox" name="соглашение" class="checkbox__real-input" checked>
-		<span class="checkbox__custom-input"></span>
-		<span class="checkbox__text">Я даю согласие на получение рекламной рассылки и обработку персональных данных</span>
-	</label>          
-	<button disabled class="send-button btn --green" type="submit">Отправить</button>		               			
-</form>
+<section class="form-block @@modificator mb mt">
+	<div class="container">
+		<div class="form-block__container">
+			<form class="form form-block__form" data-form-validation> 
+				<h3 class="form__title title3">Вопросы сотрудничества</h3>
+				<div class="form__subtitle">Оставьте свои контактные данные и сообщение, и мы свяжемся с вами в кратчайшие сроки.</div>
+				<div class="form__block-inputns">
+					<label class="form__block">
+						<input class="form__input" type="text" data-form-text name="name" placeholder="Ваше имя" required>	            
+					</label>
+					<label class="form__block">
+						<span class="form__placeholder">Телефон получателя</span>
+						<input class="form__input" type="tel" data-form-phone name="phone" placeholder="+7 (___) ___-__-__" required>		            
+					</label>
+					<label class="form__block">
+						<span class="form__placeholder">Текст поздравления будет напечатан на сертификате.</span>
+						<textarea class="form__input --message" name="Message" placeholder="Поздравление до 200 символов"></textarea>            
+					</label>   		
+					<button disabled class="send-button btn --full" type="submit">Отправить</button>		
+				</div>          
+				<p class="form__approval">
+					Я предоставляю согласие на обработку персональных данных, а также подтверждаю ознакомление и согласие с <a href="##">Политикой конфиденциальности</a> и <a href="##">Пользовательским соглашением</a>.
+				</p>               			
+			</form>
+			<div class="form-block__manager manager">
+				<div class="manager__holder-img">
+					<div class="manager__img">
+						<img class='full-img lazy' width='300' height='300' data-src='@img/info/info_1.webp' data-srcset='@img/info/info_1.webp 1x, @img/info/info_1@2x.webp 2x' alt='' title=''>
+					</div>
+				</div>
+				<div class="manager__content">
+					<div class="manager__name">Алия Рахманова</div>
+					<div class="manager__desc">Руководитель отдела по работе с корпоративными клиентами</div>
+					<a href="tel:" class="manager__link">+7 (495) 123-45-67</a>
+					<a href="mailto:" class="manager__link">corp@bonthai.ru</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
       
 

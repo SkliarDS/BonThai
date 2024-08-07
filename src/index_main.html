@@ -16,11 +16,73 @@
             @@include('./html/sections/slider.html') 
             @@include('./html/sections/gift.html') 
             @@include('./html/sections/spa-slider.html') 
-        
+            @@include('./html/sections/main-map.html') 
+            <section class="info-cards mt mb --data-card-time">
+                <div class="container">
+                    <h3 class="info-cards__title title3 miraclefade3 animated tricks ">События в сети Бон Тай</h3>
+                    <div class="info-cards__swiper swiper">	
+                        <div class="swiper-wrapper">	  
+                            <div class="swiper-slide">
+                                <div class="card --black" data-card="26 июня 2024">
+                                    <a href="##" class="card__url"></a>
+                                    <div class="card__image">
+                                        <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_1.webp' data-srcset='@img/info/info_1.webp 1x, @img/info/info_1@2x.webp 2x' alt='изображение'>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__desc">
+                                            <h6 class="card__title">BON THAI - это место, где отдыхает душа и тело.</h6>
+                                            <p class="card__subtitle">Атмосфера нашего нового салона подарит чувство спокойствия и гармонии!</p>
+                                        </div>
+                                        <div class="card__bnts --center">
+                                            <button class="card__btn btn --border">Подробности</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>			  
+                            <div class="swiper-slide">
+                                <div class="card --black --mask-1" data-card="26 июня 2024">
+                                    <a href="##" class="card__url"></a>
+                                    <div class="card__image">
+                                        <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_2.webp' data-srcset='@img/info/info_2.webp 1x, @img/info/info_2@2x.webp 2x' alt='изображение'>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__desc">
+                                            <h6 class="card__title">Новый уютный спа-салон BON THAI </h6>
+                                            <p class="card__subtitle">С трепетом в сердце официально заявляем об открытии!</p>
+                                        </div>
+                                        <div class="card__bnts --center">
+                                            <button class="card__btn btn --border">Подробности</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>			  
+                            <div class="swiper-slide">
+                                <div class="card --black --mask-2" data-card="26 июня 2024">
+                                    <a href="##" class="card__url"></a>
+                                    <div class="card__image">
+                                        <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_3.webp' data-srcset='@img/info/info_3.webp 1x, @img/info/info_1@2x.webp 2x' alt='изображение'>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__desc">
+                                            <h6 class="card__title">Основные техники тайского массажа сочетают в себе тысячелетние традиции и эффективные методики.</h6>
+                                            <p class="card__subtitle">Тайский массаж включает в себя разнообразные растяжки, которые помогают расслабить мышцы и увеличить гибкость тела.</p>
+                                        </div>
+                                        <div class="card__bnts --center">
+                                            <button class="card__btn btn --border">Подробности</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>			  
+                        </div>	
+                        <div class="info-cards__pagination pagination"></div> 	
+                    </div>
+                </div>
+            </section>
+            @@include('./html/sections/description.html') 
         </main>
-        <!-- @@include('./html/blocks/modal-grath.html')        -->
-        <!-- @@include('./html/blocks/scroll-top.html')        -->
+        @@include('./html/blocks/modal-grath.html')               
         @@include('./html/sections/footer.html')
+        
     </div>
 </body>
 </html>

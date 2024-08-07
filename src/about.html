@@ -14,13 +14,107 @@
         
         <main class="main">            
             @@include('./html/sections/banner.html') 
+            <section class="prompt mb mt leaf-left">
+                <img class='animated-circle --right lazy' width='608' height='564' data-src='@img/decor/rotated_text_1.svg' alt='' title=''>
+                <div class="container">
+                    <div class="prompt__container">
+                        <h3 class="prompt__desc title3 title3 miraclefade1 animated tricks">
+                            Аутентичные ароматы, роскошный интерьер, приветливая атмосфера и расслабляющая музыка погружают в атмосферу спокойствия и гармони.
+                        </h3>
+                    </div>
+                </div>
+            </section>
+            @@include('./html/sections/section-about.html', {
+                "modificator": "",
+                "text": "О САЛОНАХ БОН ТАЙ",
+                "title":"Древние техники",
+                "description": "Мы гордимся нашими корнями и тем, что можем предложить вам подлинный тайский массаж, основанный на многовековых традициях. Наши мастера обучены в лучших школах Таиланда, и они с любовью передают древние техники, объединяя их с современными методами для достижения наилучшего результата.",
+                "text_button": "Посмотрите на наши сертификаты",
+                "img": "info_1",
+                "running_text": "Традиции",
 
+            })   
+            @@include('./html/sections/section-about.html', {
+                "modificator": "--revers",
+                "text": "О САЛОНАХ БОН ТАЙ",
+                "title":"Умиротворение и баланс",
+                "description": "Наша цель — заботиться о вашем внутреннем мире. В каждом сеансе мы стремимся создать атмосферу, которая позволяет вам расслабиться, освободиться от стресса и почувствовать гармонию. Здесь вы найдете умиротворение и баланс, который поможет вашей душе отдохнуть и восстановиться.",
+                "text_button": "Узнайте о пользе для здоровья",
+                "img": "info_2",
+                "running_text": "Душа",
 
+            })   
+            @@include('./html/sections/section-about.html', {
+                "modificator": "",
+                "text": "О САЛОНАХ БОН ТАЙ",
+                "title":"Забота и уход",
+                "description": "Ваше тело заслуживает наилучшего ухода и заботы. В наших салонах мы предлагаем широкий спектр процедур, направленных на улучшение физического состояния и общего самочувствия. Мы поможем вам снять напряжение, устранить боли и дискомфорт, чтобы вы чувствовали себя обновленными и полными энергии.",
+                "text_button": "Ознакомьтесь с нашими услугами",
+                "img": "info_3",
+                "running_text": "Тело",
 
-           
+            })   
+
+            <section class="background mt mb lazy" data-bg="@img/bg/bg_map_1.webp" data-bg-hidpi="@img/bg/bg_map_1@2x.webp">
+                <div class="container">                    
+                    <p class="miraclefade1 miraclefade__text animated tricks">
+                        Погрузитесь в атмосферу блаженства и восстановите свою энергию в наших роскошных салонах. Вас ждет незабываемое путешествие в мир релаксации и восстановления.
+                    </p>
+                </div>
+            </section>
+            <section class="atmosphere mn mb" data-tabs>
+                <div class="container-left">
+                    <div class="atmosphere__header">
+                        <h3 class="title3">Атмосфера в салонах Бон Тай</h3>
+                        <ul class="tab none-scrollbar">
+                            <li class="tab__btn">Интерьер салонов Бон Тай</li>
+                            <li class="tab__btn">Спа-программы</li>
+                        </ul> 
+                    </div>
+                    <div class=" active" data-tabs-content>
+                        <div class="atmosphere__swiper swiper">	
+                            <div class="swiper-wrapper">	  
+                                <div class="swiper-slide atmosphere__slide">
+                                    <img class='full-img lazy' width='504' height='408' data-src='@img/info/atmosphere_1.webp' data-srcset='@img/info/atmosphere_1.webp 1x, @img/info/atmosphere_1@2x.webp 2x' alt=''>
+                                </div>		  
+                                <div class="swiper-slide atmosphere__slide">
+                                    <img class='full-img lazy' width='504' height='408' data-src='@img/info/atmosphere_2.webp' data-srcset='@img/info/atmosphere_2.webp 1x, @img/info/atmosphere_2@2x.webp 2x' alt=''>
+                                </div>		  
+                                <div class="swiper-slide atmosphere__slide">
+                                    <img class='full-img lazy' width='504' height='408' data-src='@img/info/atmosphere_3.webp' data-srcset='@img/info/atmosphere_3.webp 1x, @img/info/atmosphere_3@2x.webp 2x' alt=''>
+                                </div>		  
+                                <div class="swiper-slide atmosphere__slide">
+                                    <img class='full-img lazy' width='504' height='408' data-src='@img/info/atmosphere_1.webp' data-srcset='@img/info/atmosphere_1.webp 1x, @img/info/atmosphere_1@2x.webp 2x' alt=''>
+                                </div>		  
+                            </div>	
+                            <div class="atmosphere__pagination pagination"></div> 	
+                        </div>
+                    </div>
+            
+                    <div class="" data-tabs-content>
+                        <div class="atmosphere__swiper swiper">	
+                            <div class="swiper-wrapper">	  
+                                <div class="swiper-slide atmosphere__slide">
+                                    <img class='full-img lazy' width='504' height='408' data-src='@img/info/atmosphere_1.webp' data-srcset='@img/info/atmosphere_1.webp 1x, @img/info/atmosphere_1@2x.webp 2x' alt=''>
+                                </div>		  
+                                <div class="swiper-slide atmosphere__slide">
+                                    <img class='full-img lazy' width='504' height='408' data-src='@img/info/atmosphere_2.webp' data-srcset='@img/info/atmosphere_2.webp 1x, @img/info/atmosphere_2@2x.webp 2x' alt=''>
+                                </div>		  
+                                <div class="swiper-slide atmosphere__slide">
+                                    <img class='full-img lazy' width='504' height='408' data-src='@img/info/atmosphere_3.webp' data-srcset='@img/info/atmosphere_3.webp 1x, @img/info/atmosphere_3@2x.webp 2x' alt=''>
+                                </div>		  
+                                <div class="swiper-slide atmosphere__slide">
+                                    <img class='full-img lazy' width='504' height='408' data-src='@img/info/atmosphere_1.webp' data-srcset='@img/info/atmosphere_1.webp 1x, @img/info/atmosphere_1@2x.webp 2x' alt=''>
+                                </div>		  
+                            </div>
+                            <div class="atmosphere__pagination pagination"></div> 	
+                        </div>
+                    </div>   
+                </div>
+            </section>
+            @@include('./html/blocks/form.html') 
         </main>
-        <!-- @@include('./html/blocks/modal-grath.html')        -->
-        <!-- @@include('./html/blocks/scroll-top.html')        -->
+        @@include('./html/blocks/modal-grath.html')  
         @@include('./html/sections/footer.html')
     </div>
 </body>

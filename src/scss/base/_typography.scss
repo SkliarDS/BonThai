@@ -9,7 +9,7 @@
     background: var(--gradient-title);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // -webkit-text-fill-color: transparent;
     @media (max-width: $x) {
         line-height: 140%;
     }
@@ -17,12 +17,12 @@
 .title2 {
     font-family: var(--font-family);
     font-weight: 200;
-    font-size: 55px;
+    font-size: clamp(2.5rem, 2.074rem + 1.82vw, 3.438rem);
     line-height: 100%;
     background: var(--gradient-title);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // -webkit-text-fill-color: transparent;
 }
 .title3 {
     font-weight: 300;
@@ -31,7 +31,10 @@
     background: var(--gradient-title);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // -webkit-text-fill-color: transparent;
+    .letter {
+        // letter-spacing: -7px;
+    }
 }
 
 .text {

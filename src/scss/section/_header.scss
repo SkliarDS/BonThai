@@ -2,6 +2,10 @@
     color: #c7b399;
     transition: transform 0.2s ease-in;
     z-index: 4;
+    @media (max-width: $xx) {
+        position: fixed;
+        width: 100%;
+    }
 }
 
 .header__top {

@@ -1,0 +1,43 @@
+.description {
+}
+.description__col {
+    position: relative;
+    padding: rem-size(30);
+    font-size: rem-size(16);
+    line-height: 150%;
+    color: var(--color-1);
+
+    column-count: 2;
+    column-gap: rem-size(20);
+    @media (max-width: $m) {
+        column-count: 1;
+        padding: rem-size(30) 0;
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        background-image: url('@img/icons/desc_line.svg');
+        background-repeat: no-repeat;
+        background-position: 0px 0px; /* x y*/
+        background-size: auto; /* w h*/
+        width: 100%;
+        height: 1px;
+        top: 0;
+        left: 0;
+    }
+    &::after {
+        position: absolute;
+        content: '';
+        background-image: url('@img/icons/desc_line.svg');
+        background-repeat: no-repeat;
+        background-position: 0px 0px; /* x y*/
+        background-size: auto; /* w h*/
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+    }
+    p {
+        margin-bottom: rem-size(20);
+    }
+}

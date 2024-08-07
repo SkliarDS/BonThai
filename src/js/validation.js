@@ -6,6 +6,17 @@ validation_forms.forEach(form => {
     const form_phone = form.querySelector('[data-form-phone]');        
     const form_mail = form.querySelector('[data-form-mail]');        
     const form_input = form.querySelector('[data-form-text]');
+    const form_blocks = form.querySelectorAll('.form__block');
+    
+    form_blocks.forEach(block => {
+        const input = block.querySelector('.form__input');
+        input.addEventListener('focus', () => {
+            block.classList.add('active');
+        })
+        input.addEventListener('blur', () => {
+            block.classList.remove('active');
+        })
+    })
 
     function validatePhoneNumber(phoneNumber) {
         const phoneDigits = phoneNumber.replace(/\D/g, ''); 
@@ -15,20 +26,20 @@ validation_forms.forEach(form => {
     form_input ? form_input.addEventListener('blur', () => {
         if(form_input.value.trim() == ''){
             form_input.classList.add('is-not-valid');  
-            form_input.nextElementSibling.innerHTML = 'Введите ваше имя';                  
+            // form_input.nextElementSibling.innerHTML = 'Введите ваше имя';                  
         } else {
             form_input.classList.remove('is-not-valid');
-            form_input.nextElementSibling.innerHTML = '';
+            // form_input.nextElementSibling.innerHTML = '';
         }
         validation();
     }) : null;
     form_input ? form_input.addEventListener('input', () => {
         if(form_input.value.trim() !== ''){
             form_input.classList.remove('is-not-valid');   
-            form_input.nextElementSibling.innerHTML = '';                 
+            // form_input.nextElementSibling.innerHTML = '';                 
         } else {
             form_input.classList.add('is-not-valid');
-            form_input.nextElementSibling.innerHTML = 'Введите ваше имя';
+            // form_input.nextElementSibling.innerHTML = 'Введите ваше имя';
         }
         validation();
     }) : null;
@@ -36,20 +47,20 @@ validation_forms.forEach(form => {
     form_phone ? form_phone.addEventListener('blur', () => {
         if(!validatePhoneNumber(form_phone.value.trim())){
             form_phone.classList.add('is-not-valid');    
-            form_phone.nextElementSibling.innerHTML = 'Телефон введен не полностью';                
+            // form_phone.nextElementSibling.innerHTML = 'Телефон введен не полностью';                
         } else {
             form_phone.classList.remove('is-not-valid');
-            form_phone.nextElementSibling.innerHTML = '';
+            // form_phone.nextElementSibling.innerHTML = '';
         }
         validation();
     }) : null;
     form_phone ? form_phone.addEventListener('input', () => {
         if(validatePhoneNumber(form_phone.value.trim())){
             form_phone.classList.remove('is-not-valid');  
-            form_phone.nextElementSibling.innerHTML = '';                  
+            // form_phone.nextElementSibling.innerHTML = '';                  
         } else {
             form_phone.classList.add('is-not-valid');
-            form_phone.nextElementSibling.innerHTML = 'Телефон введен не полностью';  
+            // form_phone.nextElementSibling.innerHTML = 'Телефон введен не полностью';  
         }
         validation();
     }) : null;  
@@ -57,19 +68,19 @@ validation_forms.forEach(form => {
     form_mail ? form_mail.addEventListener('blur', () => {
         if(!emailPattern.test(form_mail.value)){
             form_mail.classList.add('is-not-valid');  
-            form_mail.nextElementSibling.innerHTML = 'Email введен не верно';                    
+            // form_mail.nextElementSibling.innerHTML = 'Email введен не верно';                    
         } else {
             form_mail.classList.remove('is-not-valid');
-            form_mail.nextElementSibling.innerHTML = '';  
+            // form_mail.nextElementSibling.innerHTML = '';  
         }
         validation();
     }) : null;
     form_mail ? form_mail.addEventListener('input', () => {
         if(emailPattern.test(form_mail.value)){
             form_mail.classList.remove('is-not-valid'); 
-            form_mail.nextElementSibling.innerHTML = ''; 
+            // form_mail.nextElementSibling.innerHTML = ''; 
         } else {
-            form_mail.nextElementSibling.innerHTML = 'Email введен не верно';                               
+            // form_mail.nextElementSibling.innerHTML = 'Email введен не верно';                               
             form_mail.classList.add('is-not-valid');
         }
         validation();
@@ -77,7 +88,8 @@ validation_forms.forEach(form => {
 
     function validation(){
         let valid = true;
-        const checkbox_checked = form_checkbox.checked;
+        const checkbox_checked = form_checkbox ? form_checkbox.checked : null;
+        console.log("validation  checkbox_checked:", checkbox_checked)
         
         if(form_input && form_input.value.trim() == ''){
             valid = false;
@@ -89,7 +101,7 @@ validation_forms.forEach(form => {
             valid = false;
         };       
         
-        if(valid && checkbox_checked){
+        if(valid){
             form_button.disabled = false;
         } else {
             form_button.disabled = true;

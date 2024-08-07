@@ -14,6 +14,10 @@
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: rem-size(600) rem-size(800);
+    @media (max-width: $xx) {
+        background-size: rem-size(250) rem-size(450);
+        background-position: right 50%;
+    }
     &.active {
         top: 0;
         opacity: 1;

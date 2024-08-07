@@ -35,6 +35,21 @@
                     display: none;
                 }
             }
+            &.--decor-brown {
+                &::after {
+                    background-image: url("@img/decor/banner_decor_right_brown.webp");
+                }
+            }
+            &.--decor-brown-light {
+                &::after {
+                    background-image: url("@img/decor/banner_decor_right_brown_light.webp");
+                }
+            }
+            &.--decor-grey {
+                &::after {
+                    background-image: url("@img/decor/banner_decor_right_grey.webp");
+                }
+            }
         }
         .main-banner__content {
             display: flex;
@@ -68,6 +83,7 @@
     height: 100%;
     object-fit: cover;
 }
+
 .banner-decor {
     position: absolute;
     top: -10%;
@@ -104,7 +120,7 @@
 
 .banner-content {
     position: relative;
-    max-width: 490px;
+    max-width: 500px;
     text-align: center;
     display: grid;
     gap: clamp(1.25rem, -0.256rem + 6.42vw, 4.563rem);
@@ -165,4 +181,9 @@
             transform: translateY(0px);
         }
     }
+}
+.banner__btn {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }

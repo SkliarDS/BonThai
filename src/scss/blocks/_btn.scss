@@ -12,6 +12,9 @@
     color: var(--color-3);
     line-height: normal;
     border: 1px solid transparent;
+    @media (max-width: $x480) {
+        padding: rem-size(10) rem-size(15);
+    }
     &.--border {
         border: 1px solid currentColor;
         @media (hover: hover){
@@ -30,5 +33,15 @@
                 border: 1px solid currentColor;
             }
         }
+    }
+    &.--opacity {
+        background: rgba(0, 0, 0, 0.2);
+        color: #453624;
+        @media (hover: hover){
+            &:hover {
+                color: #fff;
+                background: rgba(0, 0, 0, 0.7);
+            }
+        }       
     }
 }

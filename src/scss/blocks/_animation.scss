@@ -24,6 +24,52 @@
         transform: translateY(60px) scale(1.04);    
     }
 }
+@keyframes animVideoImgZoom {
+    0% {
+        transform: scale(1);
+    }
+    50% {   
+        transform: scale(1.1);    
+    }
+    100% {    
+        transform: scale(1);    
+    }
+}
+
+@keyframes animRunningLine {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {   
+        transform: translateX(-100%); 
+    }
+}
+@keyframes animGift {
+    0% {
+        transform: rotateY(-10deg); 
+        // transform: rotateY(0deg) scale3d(1, 1, 1); 
+    }
+    25% {   
+        transform: rotateY(0deg); 
+        // transform: rotateY(10deg) scale3d(0.9, 1, 1); 
+    }
+    50% {   
+        transform: rotateY(10deg); 
+        // transform: rotateY(10deg) scale3d(0.9, 1, 1); 
+    }
+    75% {   
+        transform: rotateY(0deg); 
+        // transform: rotateY(10deg) scale3d(0.9, 1, 1); 
+    }
+    100% {   
+        transform: rotateY(-10deg); 
+        // transform: rotateY(0deg) scale3d(1, 1, 1); 
+    }
+}
+
+
+
+
 
 
 

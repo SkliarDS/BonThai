@@ -12,22 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
     /* init Libs */ 
     var lazyLoadInstance = new LazyLoad({});
 
-    // AOS.init({
-    //     duration: 1000,
-    //     delay: 400,
-    //     offset: 100,
-    // });
-    
-    // new Rellax('.rellax', {
-    //     speed: 10,
-    //     center: true,
-    //     wrapper: null,
-    //     round: true,
-    //     vertical: true,
-    //     horizontal: false
-    // }); 
-    /* /init Libs*/
-
     function check_width_window(width){
         return window.innerWidth <= width;
     }
@@ -35,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const navIcon = check_width_window(576) ? document.querySelector('.nav-icon.--mobile') : document.querySelector('.nav-icon.--pc');
     const mobMenu = document.querySelector('#mobile-menu');   
     const mobAddress = document.querySelector('#mobile-address');   
-    const btn_open_address = document.querySelector('#btn_open_address');   
+    const btn_open_address = document.querySelectorAll('[data-btn-open-address]');   
     const main = document.querySelector('.main');    
     const header = document.querySelector('.header');    
     const nav = document.querySelector('.nav');    
@@ -54,16 +38,17 @@ document.addEventListener("DOMContentLoaded", function(){
         navIcon.classList.remove('active');
         bodyEl.classList.remove('noscroll');
     });
+
+    btn_open_address.forEach(btn => {
+        btn.addEventListener('click', function () {
+            this.classList.toggle('active');
+            mobAddress.classList.toggle('active');
+            bodyEl.classList.toggle('noscroll');
+        });
+    })
     
-    btn_open_address.addEventListener('click', function () {
-        this.classList.toggle('active');
-        mobAddress.classList.toggle('active');
-        bodyEl.classList.toggle('noscroll');
-    });
-    
-    mobAddress.addEventListener('click', function(){
+    mobAddress.addEventListener('click', function(e){
         this.classList.remove('active');
-        btn_open_address.classList.remove('active');
         bodyEl.classList.remove('noscroll');
     });
 
@@ -72,11 +57,23 @@ document.addEventListener("DOMContentLoaded", function(){
 			mobAddress.classList.remove('active');
 			mobMenu.classList.remove('active');
             navIcon.classList.remove('active');
-            btn_open_address.classList.remove('active');
+            // btn_open_address.classList.remove('active');
             bodyEl.classList.remove('noscroll');
 		}
 	});
 
+    /* смена блоков на первом экране: слайдер vs поиск */ 
+    const blog_header = document.querySelector('.blog__header');
+    const btn_open_search = document.querySelector('.js-open-search');
+    const btn_close_search = document.querySelector('.js-close-search');
+
+    btn_open_search ? btn_open_search.addEventListener('click', (e)=>change_header_row(e)) : null;
+    btn_close_search ? btn_close_search.addEventListener('click', (e)=>change_header_row(e)) : null;
+    function change_header_row(e){
+        blog_header.querySelector('.blog__header-row.--hidden').classList.remove('--hidden');
+        e.target.closest('.blog__header-row').classList.add('--hidden');
+    };
+    /* / смена блоков на первом экране: слайдер vs поиск */ 
 
      /* Показ/скрытие блоков */ 
      function look_more(btnSelector, hidden_element) {
@@ -140,40 +137,21 @@ document.addEventListener("DOMContentLoaded", function(){
 
     /* фиксированная шапка */
     let lastScrollTop = 0;
+    if(check_width_window(576)){
+        main.style.paddingTop = `${header_height}px`;
+    }
     const scrollHeaderFixed = () => {
         let scrollDistance = window.scrollY;      
         if (scrollDistance > header_height) {
             nav.classList.add('--fixed');
             let nav_height = nav.offsetHeight;
-            main.style.paddingTop = `${nav_height}px`;
+            main.style.paddingTop = check_width_window(576) ? `${header_height}px` : `${nav_height}px`;
         } else {
             nav.classList.remove('--fixed');
-            main.style.paddingTop = null;            
+            main.style.paddingTop = main.style.paddingTop = check_width_window(576) ? `${header_height}px` : null;            
         }
         lastScrollTop = scrollDistance;
     }; 
-    
-    function header_fixed() {
-        var currentScroll = window.scrollY || document.documentElement.scrollTop;       
-        
-        if (currentScroll > lastScrollTop){
-            header.classList.remove('--fixed');
-            main.style.paddingTop = `${0}px`;
-        } else {
-            main.style.paddingTop = `${header_height}px`;
-            header.classList.add('--fixed');
-        }
-        if(currentScroll == 0){
-            header.classList.remove('--fixed');
-            main.style.paddingTop = `${0}px`;
-        }
-        lastScrollTop = currentScroll;
-    };
-
-    // window.addEventListener('scroll', () => { 
-        // scrollHeaderFixed();
-    //     // checkAnimation();
-    // });
     /* /фиксированная шапка */
 
     /* Слайдер */    
@@ -220,10 +198,40 @@ document.addEventListener("DOMContentLoaded", function(){
         // scrollbar: {
         //   el: '.swiper-scrollbar',
         // },
-    });
-    /* /Слайдер */ 
-
-    /* Слайдер */    
+    });   
+    new Swiper('.info-cards__swiper', {  
+        clickable: true,
+        pagination: {
+            el: '.info-cards__pagination',
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 20
+            },
+            375: {
+                slidesPerView: 1.16,
+                spaceBetween: 10
+            },
+            425: {
+                slidesPerView: 1.3,
+                spaceBetween: 10
+            },
+            576: {
+              slidesPerView: 2,
+              spaceBetween: 10
+            },
+            768: {
+              slidesPerView: 2.6,
+              spaceBetween: 10
+            },
+            1200: {
+              slidesPerView: 3,
+              spaceBetween: 20
+            },
+            
+        },
+    });   
 
     let slider1 = document.querySelector('.article__images')
     let  articleSwiper;
@@ -304,6 +312,28 @@ document.addEventListener("DOMContentLoaded", function(){
             },
             
         },  
+        
+    });
+    
+    new Swiper('.atmosphere__swiper', {        
+        // loop: true,
+        slidesPerView: "auto",
+        spaceBetween: 10,
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true,
+        pagination: {
+            el: '.atmosphere__pagination',
+        }, 
+        
+    });
+    new Swiper('.blog__tab', {        
+        // loop: true,
+        slidesPerView: "auto",
+        spaceBetween: 10,
+        observer: true,
+        observeParents: true,
+        observeSlideChildren: true,
         
     });
     /* /Слайдер */ 
@@ -517,9 +547,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
     /* отправка формы PHPMailer */
 
-    // const telSelector = document.querySelectorAll('input[type="tel"]');
-    // const inputMask = new Inputmask('+7 (999) 999-99-99');
-    // inputMask.mask(telSelector);
+    const telSelector = document.querySelectorAll('input[type="tel"]');
+    const inputMask = new Inputmask('+7 (999) 999-99-99');
+    inputMask.mask(telSelector);
 
     const forms = document.querySelectorAll('.form');
 
@@ -564,7 +594,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     /* кнопка вкл видео  */    
     const videos = document.querySelectorAll('.video-id');
-    if(videos !== null){
+    if(videos){
         videos.forEach(item => {
             const video = item.querySelector('video');
             
@@ -641,16 +671,90 @@ document.addEventListener("DOMContentLoaded", function(){
         );
     }  
 
-    const footer = document.querySelector('footer');  
-   
+    var tricksWord = document.getElementsByClassName("tricks");
+    for (var i = 0; i < tricksWord.length; i++) {
+        var wordWrap = tricksWord.item(i);
+        wordWrap.innerHTML = wordWrap.innerHTML.replace(/(^|<\/?[^>]+>|\s+)([^\s<]+)/g, '$1<span class="tricksword">$2</span>');
+    }
+
+    var tricksLetter = document.getElementsByClassName("tricksword");
+    for (var i = 0; i < tricksLetter.length; i++) {
+        var letterWrap = tricksLetter.item(i);
+        letterWrap.innerHTML = letterWrap.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    }
+
+    var fadeside0 = anime.timeline({
+        loop: false,
+        autoplay: false,
+    });
+    fadeside0.add({
+        targets: '.fadeside0 .letter',
+        translateX: [40, 0],
+        translateZ:[40, 0],
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 1500,
+        delay: (el, i) => 10 + 100 * i
+    });
+
+    var miraclefade1 = anime.timeline({
+        loop: false,
+        autoplay: false,
+    });
+    miraclefade1.add({
+        targets: '.miraclefade1 .letter',
+        translateX: [40, 0], 
+        opacity: [0, 1],
+        easing: "easeInOutQuad",
+        duration: 1500,
+        delay: (el, i) => 20 * (i + 1)
+    });
+
+    var miraclefade2 = anime.timeline({
+        loop: false,
+        autoplay: false,
+    });
+    miraclefade2.add({
+        targets: '.miraclefade2 .letter', 
+        translateX: [40, 0],  
+        // translateZ:[40, 0],        
+        opacity: [0, 1],
+        easing: "easeInOutQuad",
+        duration: 3000,
+        delay: (el, i) => 20 * (i + 1)
+    });    
+    miraclefade2.play();
+
+    var miraclefade3 = anime.timeline({
+        loop: false,
+        autoplay: false,
+    });
+    miraclefade3.add({
+        targets: '.miraclefade3 .letter',  
+        translateX: [40, 0],  
+        translateZ:[40, 0],    
+        opacity: [0, 1],
+        easing: "easeInOutQuad",
+        duration: 1500,
+        delay: (el, i) => 20 * (i + 1)
+    });    
+  
+
+
+
+
+
+
+    const footer = document.querySelector('footer');    
     const anim_elements = document.querySelectorAll('.animated');
-    let is_animated = false;
+ 
     const callback = (entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                is_animated = true;
+                miraclefade3.play();
+                miraclefade1.play();
                 entry.target.classList.add('animated-active');
-                observer.unobserve(entry.target)
+                observer.unobserve(entry.target);
             }
         })
     }
@@ -703,26 +807,32 @@ document.addEventListener("DOMContentLoaded", function(){
         }
         banner_decor.style.transition = '0s';
         banner_decor.style.transform = `translateY(${scrollPosition * 0.5}px)`;            
-    }
-    
+    }    
+  
     window.addEventListener('scroll', () => {
         scrollHeaderFixed();
         animate_decor_footer();
         animate_circle_rotate();
     });
-  
+ 
     /* анимация печати текста с проверкой что тект в поле видимости */     
-    
+    const instance = new TypeIt(".typed-out", {
+        strings: [
+            "Расслабьтесь. Наслаждайтесь. Перезагрузитесь.",
+            "Приостановитесь. Отдохните. Возродитесь.",
+            "Ваша любимая комната ждет вас!"
+        ],
+        speed: 100,
+    });
+    let is_text_active = true;
     document.querySelector('.prompt__decor')?.addEventListener('click', () => {
-        document.querySelector(".prompt__text")?.classList.add('active');
-        new TypeIt(".typed-out", {
-            strings: [
-                "Расслабьтесь. Наслаждайтесь. Перезагрузитесь.",
-                "Приостановитесь. Отдохните. Возродитесь.",
-                "Ваша любимая комната ждет вас!"
-            ],
-            speed: 100,
-        }).go();
+        is_text_active = !is_text_active;
+        document.querySelector(".prompt__text")?.classList.toggle('active');
+        if(is_text_active ){
+            instance.reset();
+        } else {
+            instance.go();
+        }
     })
     /* анимация печати текста */
 
@@ -731,6 +841,15 @@ document.addEventListener("DOMContentLoaded", function(){
     const tab_btn_back = document.querySelector('.gift-tab__btn-back');
     const controls = document.querySelector('.gift-tab__controls');
     const controls_back = document.querySelector('.gift-tab__controls-back');
+    const tab_contents = document.querySelectorAll('.gift-tab__content');
+
+    tab_contents.forEach(item_content => {
+        item_content.addEventListener('click', () => {
+            item_content.classList.add('transform');
+            controls.classList.add('hidden');
+            controls_back.classList.add('active');
+        })
+    })
     
     tab_btn_play?.addEventListener('click', () => {
         const tab_active = document.querySelector('.gift-tab__content.active');
@@ -745,30 +864,72 @@ document.addEventListener("DOMContentLoaded", function(){
         controls_back.classList.remove('active');
     })
  
-    const flipButton = document.getElementById('flipButton');    
-
+    const flipButton = document.getElementById('flipButton');     
     flipButton.addEventListener('click', () => {
         const tab_active = document.querySelector('.gift-tab__content.active');
         const inlay = tab_active.querySelector('.inlay');
+        const img = inlay.querySelector('.inlay__img.--front');
         inlay.classList.toggle('flipped');
     });
 
+    let prxScenes = document.querySelectorAll('.inlay');
+    prxScenes?.forEach(scene => {
+        let img = scene.querySelector('.inlay__img');
 
-    // let prxScenes = document.querySelectorAll('.inlay')
-    // prxScenes?.forEach(scene => {
-    //     const tab_active = document.querySelector('.gift-tab__content.active');
-    //     let img = tab_active.querySelector('.inlay__img');
+        scene.addEventListener('mousemove', function (e) {
+            let x = e.clientX / window.innerWidth;
+            let y = e.clientY / window.innerHeight;
+            scene.style.transition = 'transform 200ms linear';
+            scene.style.transform = `perspective(1000px) rotateY(${y * 20}deg) rotateX(${x * 10}deg) scale3d(1, 1, 1)`;                
+        }); 
+        scene.addEventListener('mouseout', function (e) {
+            scene.style.transform = null;                     
+        }); 
+        // scene.addEventListener('click', function (e) {
+        //     scene.classList.toggle('flipped');                  
+        // }); 
+    })
 
-    //     scene.addEventListener('mousemove', function (e) {
-    //         let x = e.clientX / window.innerWidth;
-    //         let y = e.clientY / window.innerHeight;
-    //         img.style.transition = 'transform 100ms linear';
-    //         // img.style.transform = `perspective(1000px) rotate3d(1, 1, 0, ${x * 20}deg) scale3d(1, 1, 1)`;
-    //         img.style.transform = `perspective(1000px) rotateY(${x * 20}deg) scale3d(1, 1, 1)`;
-    //         // img.style.transform = 'translate(' + x * 50 + 'px, ' + y * 50 + 'px)';    
-            
-    //     }); 
-    // })
+    // function wrapText(selector) {
+    //     // Находим элемент по заданному селектору
+    //     const textElement = document.querySelector(selector);
+    //     if (!textElement) return;
+    
+    //     // Получаем текст из элемента
+    //     let innerText = textElement.innerHTML;
+    
+    //     // Разделяем текст на слова
+    //     let words = innerText.split(' ');
+    
+    //     // Обрабатываем каждое слово
+    //     let wrappedWords = words.map(word => {
+    //         // Оборачиваем каждую букву в <span class="letter">
+    //         let letters = word.split('').map(letter => `<span class="letter">${letter}</span>`).join('');
+    
+    //         // Возвращаем обёрнутое слово в <span class="tricksword">
+    //         return `<span class="tricksword">${letters}&nbsp</span>`;
+    //     }).join('');
+    
+    //     // Оборачиваем все слова в <h3 class="title3 miraclefade3 animated">
+    //     let resultHTML = `<h3 class="title3 miraclefade3 animated">${wrappedWords}</h3>`;
+    
+    //     // Вставляем результат на страницу
+    //     textElement.innerHTML = resultHTML;
+    // }
+    
+    // // Применяем функцию к элементу с классом .info-cards__title
+    // wrapText('.info-cards__title');
+
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     const runningLine = document.querySelector('.running-line');
+    //     const textLength = runningLine.offsetWidth; // Получаем ширину текста
+    //     const containerWidth = runningLine.parentElement.offsetWidth; // Получаем ширину контейнера
+    
+    //     // Вычисляем скорость анимации
+    //     const duration = (textLength + containerWidth) / 100; // Измените делитель для регулировки скорости
+    
+    //     runningLine.style.animationDuration = ${duration}s;
+    // });
     
     /* /анимация вкладышей */ 
     /* /АНИМАЦИИ */
@@ -777,3 +938,199 @@ document.addEventListener("DOMContentLoaded", function(){
     
 
 
+// var fadesideuvod = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// fadesideuvod.add({
+//   targets: '.fadesideuvod .letter',
+//   translateX: [40, 0],
+//   translateZ: 0,
+//   opacity: [0, 1],
+//   easing: "easeOutExpo",
+//   duration: 1800,
+//   delay: (el, i) => 10 + 100 * i
+// });
+
+// var fadeside0 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// fadeside0.add({
+//   targets: '.fadeside0 .letter',
+//   translateX: [40, 0],
+//   translateZ: 0,
+//   opacity: [0, 1],
+//   easing: "easeOutExpo",
+//   duration: 1800,
+//   delay: (el, i) => 10 + 100 * i
+// });
+
+// var fadeside1 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// fadeside1.add({
+//   targets: '.fadeside1 .letter',
+//   translateX: [40, 0],
+//   translateZ: 0,
+//   opacity: [0, 1],
+//   easing: "easeOutExpo",
+//   duration: 1800,
+//   delay: (el, i) => 10 + 70 * i
+// });
+
+// var fadeside2 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// fadeside2.add({
+//   targets: '.fadeside2 .letter',
+//   translateX: [40, 0],
+//   translateZ: 0,
+//   opacity: [0, 1],
+//   easing: "easeOutExpo",
+//   duration: 1800,
+//   delay: (el, i) => 10 + 70 * i
+// });
+
+// var fadeside3 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// fadeside3.add({
+//   targets: '.fadeside3 .letter',
+//   translateX: [40, 0],
+//   translateZ: 0,
+//   opacity: [0, 1],
+//   easing: "easeOutExpo",
+//   duration: 1800,
+//   delay: (el, i) => 10 + 70 * i
+// });
+
+// var fadeside4 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// fadeside4.add({
+//   targets: '.fadeside4 .letter',
+//   translateX: [40, 0],
+//   translateZ: 0,
+//   opacity: [0, 1],
+//   easing: "easeOutExpo",
+//   duration: 1800,
+//   delay: (el, i) => 10 + 70 * i
+// });
+
+// var fadeside5 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// fadeside5.add({
+//   targets: '.fadeside5 .letter',
+//   translateX: [40, 0],
+//   translateZ: 0,
+//   opacity: [0, 1],
+//   easing: "easeOutExpo",
+//   duration: 1800,
+//   delay: (el, i) => 10 + 70 * i
+// });
+
+// var miraclefade0 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// miraclefade0.add({
+//   targets: '.miraclefade0 .letter',
+//   opacity: [0, 1],
+//   easing: "easeInOutQuad",
+//   duration: 1500,
+//   delay: (el, i) => 20 * (i + 1)
+// });
+
+// var miraclefade1 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// miraclefade1.add({
+//   targets: '.miraclefade1 .letter',
+//   opacity: [0, 1],
+//   easing: "easeInOutQuad",
+//   duration: 1500,
+//   delay: (el, i) => 20 * (i + 1)
+// });
+
+// var miraclefade2 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// miraclefade2.add({
+//   targets: '.miraclefade2 .letter',
+//   opacity: [0, 1],
+//   easing: "easeInOutQuad",
+//   duration: 1500,
+//   delay: (el, i) => 20 * (i + 1)
+// });
+
+// var miraclefade3 = anime.timeline({
+//   loop: false,
+//   autoplay: false,
+// });
+// miraclefade3.add({
+//   targets: '.miraclefade3 .letter',
+//   opacity: [0, 1],
+//   easing: "easeInOutQuad",
+//   duration: 1500,
+//   delay: (el, i) => 20 * (i + 1)
+// });
+
+// setTimeout(() => {
+//   fadesideuvod.play();
+// }, 4500);
+// setTimeout(() => {
+//   fadeside0.play();
+// }, 10);
+// setTimeout(() => {
+//   miraclefade0.play();
+// }, 10);
+
+// $('#fadein1').one('inview', function(event, isInView) {
+//   if (isInView) {
+//     fadeside1.play();
+//   } else {}
+// });
+// $('#fadein2').one('inview', function(event, isInView) {
+//   if (isInView) {
+//     fadeside2.play();
+//   } else {}
+// });
+// $('#fadein3').one('inview', function(event, isInView) {
+//   if (isInView) {
+//     fadeside3.play();
+//   } else {}
+// });
+// $('#fadein4').one('inview', function(event, isInView) {
+//   if (isInView) {
+//     fadeside4.play();
+//   } else {}
+// });
+// $('#fadein5').one('inview', function(event, isInView) {
+//   if (isInView) {
+//     fadeside5.play();
+//   } else {}
+// });
+// $('#miraclein1').one('inview', function(event, isInView) {
+//   if (isInView) {
+//     miraclefade1.play();
+//   } else {}
+// });
+// $('#miraclein2').one('inview', function(event, isInView) {
+//   if (isInView) {
+//     miraclefade2.play();
+//   } else {}
+// });
+// $('#miraclein3').one('inview', function(event, isInView) {
+//   if (isInView) {
+//     miraclefade3.play();
+//   } else {}
+// });

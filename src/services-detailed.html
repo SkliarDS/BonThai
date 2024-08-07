@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    @@include('./html/blocks/head.html', {
+        "title":"Услуги детальная"
+    })   
+</head>
+<body id="body">   
+    <div class="wrapper --brown">
+        @@include('./html/blocks/mobile-menu.html')       
+        @@include('./html/blocks/mobile-address.html')   
+        @@include('./html/sections/header.html')           
+        
+        <main class="main">            
+            <section class="main-banner --page animated">
+                @@include('./html/blocks/bredcrumbrs.html', {"modificator": "--absolute"})
+                <div class="container-left">        
+                    <div class="main-banner__video banner-overlay --decor-brown">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="">
+                            <img class='banner-decor lazy' width='699' height='651' data-src='@img/decor/banner_decor.svg' alt=''>
+                        </picture>
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="">
+                            <img class='banner-decor --opacity lazy' width='699' height='651' data-src='@img/decor/banner_decor_opacity.svg' alt=''>
+                        </picture>
+                        <div class="main-banner__content">
+                            <div class="banner-content">
+                                <h1 class="banner-content__title title1">ВАКАНСИИ</h1>
+                                <p class="banner-content__subtitle">Станьте частью нашего дружного коллектива тайского спа-салона и откройте для себя возможность работать в теплой и поддерживающей атмосфере!</p>
+                            </div>
+                        </div> 
+                        <video width="100%" height="905" class="video lazy"  data-poster="@img/bg/banner_4.webp" loop muted >
+                            <source data-src="./files/videos/video_mobile.mp4" type='video/mp4'  media="(min-width: 768px)">
+                            <source src="./files/videos/video_mobile.mp4" type='video/mp4'>
+                        </video>        
+                    </div>    
+                </div>
+            </section>
+            @@include('./html/sections/faq.html')  
+        </main>
+        @@include('./html/blocks/modal-grath.html')  
+        @@include('./html/sections/footer.html')
+    </div>
+</body>
+</html>

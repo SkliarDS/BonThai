@@ -55,35 +55,66 @@ body {
     min-height: 100%;    
     z-index: 1;
     overflow: hidden;
-    &::before {
-        position: absolute;
-        content: '';
-        background-image: url('@img/bg/bg.webp');
+    // background-image: url('@img/bg/bg.webp');
+    // background-repeat: repeat;
+    // background-size: cover;
+    // &::before {
+    //     position: absolute;
+    //     content: '';
+    //     // width: 100%;
+    //     // height: 100%;
+    //     // top: 0;
+    //     // left: 0;
+    //     // z-index: -1;
+    //     // z-index: 5;
+    // }
+    &.--brown {
+        background: url('@img/bg/bg.webp'), var(--gradient-1) ;
         background-repeat: repeat;
         background-size: cover;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: -1;
-    }
-    &.--brown {
-        background: var(--gradient-1);
         .nav {
             &.--fixed {
                 background: var(--gradient-1);
             }
         }
+        @media (max-width: $xx) {
+            .header {
+                background: var(--gradient-1);
+            }            
+        }
     }
     &.--brown-2 {
-        background: var(--gradient-2);
+        background: url('@img/bg/bg.webp'), var(--gradient-2) ;
+        background-repeat: repeat;
+        background-size: cover;
         .nav {
             &.--fixed {
                 background: var(--gradient-2);
             }
         }
+        @media (max-width: $xx) {
+            .header {
+                background: var(--gradient-2);
+            }            
+        }
+    }
+    &.--brown-3 {
+        background: url('@img/bg/bg.webp'), linear-gradient(90deg, #8b6d57 0%, #412a1d 100%);
+        background-repeat: repeat;
+        background-size: cover;
+        .nav {
+            &.--fixed {
+                background: linear-gradient(90deg, #8b6d57 0%, #412a1d 100%);
+            }
+        }
+        @media (max-width: $xx) {
+            .header {
+                background: linear-gradient(90deg, #8b6d57 0%, #412a1d 100%);
+            }            
+        }
     }
 }
+
 .main {
     flex: 1 0 auto;
 }
@@ -117,8 +148,6 @@ body.noscroll {
     padding-left: var(--container-padding);
     padding-right: var(--container-padding);
     @media (max-width: 374px) {
-        // padding-left: 10px;
-        // padding-right: 10px;
         --container-padding: 10px;
     }
 }
@@ -197,16 +226,32 @@ button:disabled {
         animation: animDecorRight 3s ease-in-out infinite alternate 2s;
     }
 }
+.leaf-left {
+    position: relative;
+    &::before {
+        position: absolute;
+        content: '';
+        background-image: url('@img/decor/decor_2.svg');
+        background-repeat: no-repeat;
+        background-size: rem-size(1010) rem-size(1310);
+        width: rem-size(1010);
+        height: rem-size(1310);
+        top: 10%;
+        left: 0;
+        animation: animDecorRight 3s ease-in-out infinite alternate 2s;
+    }
+}
 
 .animated-circle {
     position: absolute;    
     bottom: -50%;
     width: rem-size(610); height: rem-size(560);
+    z-index: 1;
     @media (max-width: $xx) {
        display: none;
     }
     &.--right {
-        right: -28%;
+        right: -20%;
         @media (max-width: $mn) {
             right: -38%;
         }   
@@ -219,11 +264,26 @@ button:disabled {
         }
     }
 }
-.f {
-    transition:  1s ease-in;
-    @media (hover: hover){
-        &:hover {
-            transform: rotate3d(1, 1, 0, 20deg);
-        }
+.zoom {
+    animation: animVideoImgZoom 20s linear 2.5s infinite;
+}
+.running-line {
+    animation: animRunningLine 20s linear infinite;
+    transform: translateX(0%); 
+    white-space: nowrap;
+    span {
+        padding: 0 50px;
+    }
+}
+
+.header-title {
+    margin: rem-size(45) 0 rem-size(70);
+    display: grid;
+    gap: 15px;
+    @media (max-width: $xx) {
+        margin: rem-size(30) 0 rem-size(40);
+    }
+    &.--mb-40 {
+        margin-bottom: rem-size(40);
     }
 }

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    @@include('./html/blocks/head.html', {
+        "title":"Франчазинг"
+    })   
+</head>
+<body id="body">   
+    <div class="wrapper --brown-3">
+        @@include('./html/blocks/mobile-menu.html')       
+        @@include('./html/blocks/mobile-address.html')   
+        @@include('./html/sections/header.html')                    
+        <main class="main">            
+            <section class="main-banner --page animated">
+                <div class="container-left">        
+                    <div class="main-banner__video banner-overlay --decor-brown-light">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="">
+                            <img class='banner-decor lazy' width='699' height='651' data-src='@img/decor/banner_decor.svg' alt=''>
+                        </picture>
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="">
+                            <img class='banner-decor --opacity lazy' width='699' height='651' data-src='@img/decor/banner_decor_opacity.svg' alt=''>
+                        </picture>
+                        <div class="main-banner__content">
+                            <div class="banner-content">
+                                <h1 class="banner-content__title title1">Франчазинг</h1>
+                                <p class="banner-content__subtitle">Присоединившись к сети BON THAI, вы получите доступ к проверенной бизнес-модели, поддержке опытной команды и эксклюзивным знаниям в области тайского СПА. Мы поможем вам создать успешный и прибыльный бизнес, который будет радовать ваших клиентов и приносить удовольствие вам.</p>
+                                    <button class="banner__btn btn --full">Оставить заявку</button>
+                            </div>
+                        </div> 
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="">
+                            <img class='video zoom  lazy ' width='699' height='651' data-src='@img/bg/banner_3.webp' data-srcset='@img/bg/banner_3.webp 1x, @img/bg/banner_3@2x.webp 2x' alt=''>
+                        </picture>        
+                    </div>    
+                </div>
+            </section>
+            <section class="prompt mb mt leaf-left">
+                <div class="container">
+                    <div class="prompt__container">
+                        <h3 class="prompt__desc title3 miraclefade1 animated tricks">
+                            Мы предлагаем индивидуальные условия при покупке подарочных сертификатов сети Бон Тай
+                        </h3>
+                    </div>
+                </div>
+            </section>
+            @@include('./html/sections/section-about.html', {
+                "modificator": "",
+                "text": "франчайзинг",
+                "title":"Профессионализм и квалификация",
+                "description": "Мы гордимся высоким уровнем профессионализма наших сотрудников. Все массажисты проходят тщательный отбор и обучение в лучших школах тайского массажа, что гарантирует высочайшее качество предоставляемых услуг.",
+                "text_button": "Посмотрите на наши сертификаты",
+                "img": "info_7",
+                "running_text": "",
+
+            })   
+            @@include('./html/sections/section-about.html', {
+                "modificator": "--revers",
+                "text": "франчайзинг",
+                "title":"Концепция: традиции, душа и тело",
+                "description": "Наша сеть основывается на глубоком уважении к тайским традициям. Мы создаем уникальную атмосферу, которая позволяет клиентам обрести гармонию души и тела. Каждая процедура сочетает в себе древние техники и современные методики для достижения наилучших результатов.",
+                "text_button": "Узнайте о пользе для здоровья",
+                "img": "info_8",
+                "running_text": "",
+
+            })   
+            @@include('./html/sections/section-about.html', {
+                "modificator": "",
+                "text": "франчайзинг",
+                "title":"Команда – семья",
+                "description": "В BON THAI мы верим, что успешный бизнес строится на сильной и сплоченной команде. Мы создаем поддерживающую и дружелюбную атмосферу, где каждый сотрудник чувствует себя частью большой семьи. Это способствует не только повышению качества работы, но и созданию комфортной среды для клиентов.",
+                "text_button": "Ознакомьтесь с нашими услугами",
+                "img": "info_9",
+                "running_text": "",
+
+            })   
+            <section class="bg-clients mt mb lazy" data-bg="@img/bg/bg_clients.webp" data-bg-hidpi="@img/bg/bg_clients@2x.webp">
+                <div class="container">
+                    <p class="miraclefade1 animated tricks">
+                        Выбирая подарок для сотрудников, партнёров или корпоративных клиентов, выберите то, что принесёт им радость и расслабление — подарочный сертификат на тайский массаж и СПА в салонах Бон Тай.
+                    </p>
+                </div>
+            </section>   
+            <section class="info-cards mt mb --data-card-number">
+                <div class="container">
+                    <h3 class="info-cards__title title3 miraclefade3 animated tricks ">События в сети Бон Тай</h3>
+                    <div class="info-cards__swiper swiper">	
+                        <div class="swiper-wrapper">	  
+                            <div class="swiper-slide">
+                                <div class="card --brown" data-card="1">
+                                    <a href="##" class="card__url"></a>
+                                    <div class="card__image">
+                                        <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_1.webp' data-srcset='@img/info/info_1.webp 1x, @img/info/info_1@2x.webp 2x' alt='изображение'>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__desc">
+                                            <h6 class="card__title">Подготовка к открытию</h6>
+                                            <p class="card__subtitle">Консультация по выбору помещения и индивидуальный расчет стоимости открытия и операционных показателей.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>			  
+                            <div class="swiper-slide">
+                                <div class="card --grey --mask-3" data-card="2">
+                                    <a href="##" class="card__url"></a>
+                                    <div class="card__image">
+                                        <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_2.webp' data-srcset='@img/info/info_2.webp 1x, @img/info/info_2@2x.webp 2x' alt='изображение'>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__desc">
+                                            <h6 class="card__title">Открытие</h6>
+                                            <p class="card__subtitle">Поддержка в процессе открытия, помощь 
+                                                в сокращении сроков и снижении стоимости открытия.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>			  
+                            <div class="swiper-slide">
+                                <div class="card --green --mask-4" data-card="3">
+                                    <a href="##" class="card__url"></a>
+                                    <div class="card__image">
+                                        <img class='full-img lazy' width='305' height='280' data-src='@img/info/info_3.webp' data-srcset='@img/info/info_3.webp 1x, @img/info/info_1@2x.webp 2x' alt='изображение'>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__desc">
+                                            <h6 class="card__title">Операционный цикл</h6>
+                                            <p class="card__subtitle">Запуск салона с командой "Открытие", опытными массажистами и управляющим, поддержка в формировании команды и оптимизации работы на протяжении всего жизненного цикла проекта.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>			  
+                        </div>	
+                        <div class="info-cards__pagination pagination"></div> 	
+                    </div>
+                </div>
+            </section>         
+            @@include('./html/blocks/form.html', {"modificator": "--bg"}) 
+        </main>
+        @@include('./html/blocks/modal-grath.html')  
+        @@include('./html/sections/footer.html')
+    </div>
+</body>
+</html>

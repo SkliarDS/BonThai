@@ -1,4 +1,5 @@
 .prompt {
+    position: relative;
 }
 
 .prompt__container {
@@ -18,7 +19,6 @@
     @media (max-width: $xx) {
         padding-bottom: 20px;
         width: 100%;
-        text-align: center;
     }
 }
 .prompt__decor {
@@ -77,6 +77,18 @@
         @media (max-width: $x) {
             width: rem-size(370);
         }
+    }
+    &::after {
+        position: absolute;
+        content: '';
+        background-image: url('@img/icons/arrow_prev.svg');
+        background-repeat: no-repeat;
+        background-position: 0px 0px; /* x y*/
+        background-size: cover; /* w h*/
+        top: 5px;
+        left: 10px;
+        width: rem-size(20);
+        height: rem-size(20);
     }
     @media (max-width: $t) {
         transform: translate(0);

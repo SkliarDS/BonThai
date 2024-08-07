@@ -3,7 +3,9 @@
     --gift-height: calc((400 / 16) * 1rem);
     position: relative;
     overflow: hidden;
-    background: linear-gradient(90deg, #8b6d57 0%, #412a1d 100%);
+    background: url('@img/bg/bg.webp'), linear-gradient(90deg, #8b6d57 0%, #412a1d 100%);
+    background-repeat: repeat;
+    background-size: cover;
     padding: rem-size(58) 0;
     @media (max-width: $xx) {
         --gift-width: calc((500 / 16) * 1rem);
@@ -44,6 +46,8 @@
     position: relative;
     width: var(--gift-width);
     height: var(--gift-height);
+    transform: perspective(1000px);
+    // animation: animGift 5s linear infinite;
     img {
         width: var(--gift-width);
         height: var(--gift-height);
@@ -186,6 +190,10 @@
             color: var(--color-1);
             transform: rotate(180deg);
         }
+    }
+    img {
+        width: rem-size(38);
+        height: rem-size(38);
     }
     &.active {
     }

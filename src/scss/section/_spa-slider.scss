@@ -1,6 +1,6 @@
 .spa-slider {
     position: relative;
-    margin-bottom: rem-size(100);
+    margin-bottom: rem-size(60);
     margin-top: rem-size(100);
     @media (max-width: $x) {
         margin-bottom: rem-size(50);
@@ -95,7 +95,7 @@
     align-items: start;
     height: 100%;
     max-width: 390px;
-    padding: rem-size(40) 0;
+    // padding: rem-size(40) 0;
     @media (max-width: $t) {
         padding: rem-size(0) 0;
     }

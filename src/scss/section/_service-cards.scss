@@ -1,0 +1,25 @@
+.service-cards {
+    padding: 30px 0 50px;
+}
+.service-cards__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: rem-size(50) rem-size(20);
+    @media (max-width: $m) {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: rem-size(20);
+    }
+    @media (max-width: 719px) {
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    }
+}
+.service-cards__btn {
+    padding: rem-size(20) rem-size(60);
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    font-weight: 600;
+    font-size: rem-size(16);
+    color: #453624;
+    margin-top: rem-size(50);
+}
